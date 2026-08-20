@@ -1,0 +1,347 @@
+.container {
+    border: 1px solid var(--color-light-3);
+    box-shadow: 0px 1px 8px rgba(189, 189, 189, 0.08), 0px 2px 16px rgba(224, 224, 224, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    min-height: 232px;
+    overflow: hidden;
+    &.grid {
+        .header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 100%;
+            gap: 8px;
+            margin-bottom: 4px;
+            overflow: hidden;
+            > div:first-child {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                overflow: hidden;
+                .name {
+                    line-height: 20px;
+                    font-weight: 600;
+                    font-size: 16px;
+                    color: var(--color-light-7);
+                    display: -webkit-box;
+                    overflow: hidden;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                }
+                .description {
+                    display: -webkit-box;
+                    overflow: hidden;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    font-size: 12px;
+                    line-height: 15px;
+                    color: var(--color-light-5);
+                }
+            }
+        }
+        .body {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-start;
+            margin-bottom: 11px;
+        }
+        .footer {
+            flex: 1;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+
+            > div:first-child {
+                margin-right: 93px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-start;
+            }
+            .qrCodeContainer {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+            .tracking {
+                display: flex;
+                gap: 8px;
+                flex-direction: column;
+                font-size: 14px;
+                color: var(--color-light-7);
+                line-height: 16px;
+                > div {
+                    display: flex;
+                    gap: 8px;
+                    align-items: center;
+                    &.disabled {
+                        color: var(--color-light-4);
+                    }
+                    span {
+                        span {
+                            font-size: 16px;
+                            font-weight: 600;
+                        }
+                    }
+                    svg {
+                        font-size: 20px;
+                        color: var(--color-light-4);
+                    }
+                }
+            }
+
+            .status {
+                margin-top: 8px;
+                color: var(--color-light-7);
+                font-size: 14px;
+                line-height: 16px;
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                svg {
+                    font-size: 20px;
+                    color: var(--color-light-4);
+                }
+            }
+        }
+    }
+    &.list {
+        .inner {
+            width: 100%;
+            display: flex;
+            gap: 12px;
+            flex-direction: row;
+            > svg {
+                font-size: 24px;
+                color: var(--color-light-3);
+                &.active {
+                    color: var(--color-primary-1);
+                }
+            }
+            > div {
+                flex: 1;
+            }
+            div.disabled,
+            span.disabled {
+                color: var(--color-light-4);
+            }
+
+            .content {
+                display: flex;
+                gap: 4px;
+                flex-direction: column;
+                font-size: 14px;
+                color: var(--color-light-7);
+                line-height: 16px;
+                > span {
+                    font-size: 12px;
+                    color: var(--color-light-5);
+                    line-height: 15px;
+                }
+            }
+            > div {
+                .info {
+                    flex: 1;
+                    .header {
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: space-between;
+                        width: 100%;
+                        gap: 4px;
+                        margin-bottom: 4px;
+
+                        > div:first-child {
+                            width: 352px;
+                        }
+                        .name {
+                            line-height: 20px;
+                            font-weight: 600;
+                            font-size: 16px;
+                            color: var(--color-light-7);
+                            // display: -webkit-box;
+                            // overflow: hidden;
+                            // -webkit-box-orient: vertical;
+                            // -webkit-line-clamp: 2;
+                        }
+                        .description {
+                            // display: -webkit-box;
+                            // overflow: hidden;
+                            // -webkit-box-orient: vertical;
+                            // -webkit-line-clamp: 2;
+                            font-size: 12px;
+                            line-height: 15px;
+                            height: 30px;
+                            color: var(--color-light-5);
+                        }
+                    }
+                    .body {
+                        width: 100%;
+
+                        display: flex;
+                        > .detail {
+                            flex: 1;
+
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            gap: 18px;
+                            > div {
+                                padding-top: 32px;
+                                display: grid;
+                                gap: 16px 48px;
+                                height: 98px;
+                                grid-template-columns: 200px 200px;
+
+                                > div {
+                                    display: flex;
+                                    align-items: center;
+                                    font-size: 14px;
+                                    color: var(--color-light-7);
+                                    gap: 8px;
+                                    overflow: hidden;
+                                    svg {
+                                        font-size: 20px;
+                                        color: var(--color-light-4);
+                                    }
+                                }
+                            }
+                        }
+                        .extra {
+                            width: 192px;
+                            .tracking {
+                                &.content {
+                                    gap: 16px;
+                                }
+                                > div {
+                                    display: flex;
+                                    gap: 8px;
+                                    align-items: center;
+                                    &.disabled {
+                                        color: var(--color-light-4);
+                                    }
+                                    span {
+                                        span {
+                                            font-size: 16px;
+                                            font-weight: 600;
+                                        }
+                                    }
+                                    svg {
+                                        font-size: 20px;
+                                        color: var(--color-light-4);
+                                    }
+                                }
+                            }
+                            .status {
+                                margin-top: 16px;
+                                color: var(--color-light-7);
+                                font-size: 14px;
+                                line-height: 16px;
+                                display: flex;
+                                gap: 8px;
+                                align-items: center;
+                                svg {
+                                    font-size: 20px;
+                                    color: var(--color-light-4);
+                                }
+                            }
+                        }
+                    }
+                }
+                > .detail {
+                    display: flex;
+                    justify-content: space-between;
+                    padding-right: 36px;
+
+                    .setup {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 16px;
+                        .destination {
+                            display: flex;
+                            align-items: center;
+                            gap: 48px;
+                            > svg {
+                                font-size: 24px;
+                                color: var(--color-light-4);
+                            }
+                            > div {
+                                &.content {
+                                    > div {
+                                        display: flex;
+                                        align-items: flex-start;
+                                        gap: 8px;
+                                        svg {
+                                            width: 1em;
+                                            height: 1em;
+                                            font-size: 20px;
+                                            color: var(--color-light-5);
+                                        }
+                                        > div {
+                                            display: flex;
+                                            flex-direction: column;
+                                            gap: 5px;
+                                            > span {
+                                                line-height: 20px;
+                                            }
+
+                                            > div {
+                                                display: flex;
+                                                gap: 4px;
+                                                color: var(--color-light-5);
+                                                svg {
+                                                    font-size: 16px;
+                                                    color: var(--color-light-4);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                &.workflowToExecute {
+                                    > div {
+                                        align-items: center;
+                                    }
+                                }
+                            }
+                        }
+                        .initiationPhrase {
+                        }
+                    }
+                    .touchpoint {
+                        width: 184px;
+                        &.content {
+                            gap: 8px;
+                            align-items: flex-start;
+                            > span,
+                            .qrCodeContainer {
+                                padding-left: 28px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.campaignCard {
+    .cardContainer {
+        border: 1px solid var(--color-light-3);
+        padding: 8px 12px;
+        border-radius: 4px;
+        height: 40px;
+        font-size: 14px;
+        color: var(--color-light-7);
+        width: 100%;
+        svg {
+            font-size: 24px;
+            color: var(--color-light-5);
+        }
+    }
+}

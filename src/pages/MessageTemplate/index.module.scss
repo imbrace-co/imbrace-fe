@@ -1,0 +1,12 @@
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+    flex: 1;
+}
+
+.extraContainer {
+    display: flex;
+    gap: 15px;
+}

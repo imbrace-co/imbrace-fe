@@ -1,0 +1,10 @@
+[
+    {
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "co.imbrace.app.aos",
+            "sha256_cert_fingerprints": ["BE:1E:10:11:B4:63:C0:9E:BC:53:8C:8C:DB:AB:2A:62:0C:80:2F:B2:BC:C4:71:30:0A:7F:92:1A:25:33:A8:8D"]
+        }
+    }
+]

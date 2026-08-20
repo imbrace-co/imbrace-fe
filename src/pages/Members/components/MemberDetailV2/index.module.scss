@@ -1,0 +1,26 @@
+@mixin align-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.memberDetail {
+    @include align-column;
+}
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 439px;
+    padding: 0 32px;
+}
+
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    padding: 0 32px;
+}

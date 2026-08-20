@@ -1,0 +1,39 @@
+.container {
+    position: relative;
+    &:hover {
+        .actions {
+            visibility: visible;
+        }
+    }
+    :global {
+        .ant-qrcode {
+            padding: 0;
+            border-radius: 0;
+            border: none;
+        }
+    }
+    canvas,
+    svg {
+        display: block;
+    }
+    .actions {
+        position: absolute;
+        visibility: hidden;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5.5px;
+        background-color: rgba(51, 51, 51, 0.5);
+        button {
+            transition: none;
+        }
+        > div {
+            background: white;
+            border-radius: 4px;
+        }
+    }
+}

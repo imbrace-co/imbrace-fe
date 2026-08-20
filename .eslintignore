@@ -1,0 +1,13 @@
+/public
+/build
+/node_modules
+/devops
+/etc
+/src/redux/thunks
+/src/redux/actions
+/src/redux/reducers
+# /src/pages/Workflow
+*.js
+*.svg
+*.stories.tsx
+*.json

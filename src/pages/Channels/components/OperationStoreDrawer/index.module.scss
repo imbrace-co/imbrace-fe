@@ -1,0 +1,57 @@
+.operationStore {
+    display: flex;
+    flex-direction: column;
+    padding: 0 35px;
+    flex: 1;
+    height: 100%;
+    .fieldsContainer {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        overflow: hidden;
+        margin-bottom: 20px;
+        form {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            .devicesContainer {
+                display: flex;
+                flex-direction: column;
+                margin-top: 20px;
+                overflow: hidden;
+                .devicesFormFieldsContainer {
+                    overflow: auto;
+                }
+                & .formFields {
+                    display: flex;
+                    gap: 14px;
+                    width: 100%;
+                    margin: 10px 0;
+                    &.formHeader {
+                        margin: 0;
+                    }
+                    & .heading {
+                        color: var(--color-light-5);
+                        font-size: 16px;
+                    }
+                    > div:first-child {
+                        flex: 1;
+                    }
+                    > div:nth-of-type(2) {
+                        width: 145px;
+                    }
+                    > div:last-child {
+                        width: 40px;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        min-height: 43px;
+        gap: 20px;
+    }
+}

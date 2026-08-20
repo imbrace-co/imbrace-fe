@@ -1,0 +1,33 @@
+.qrCodeContainer {
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    .tabContainer {
+        flex: 1;
+        border-bottom: 1px solid #e0e0e0;
+        overflow: hidden;
+    }
+}
+
+.container {
+    display: grid;
+    gap: 24px 16px;
+    margin-bottom: 24px;
+    &.grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    &.list {
+        grid-template-columns: 1fr;
+    }
+    // display: flex;
+    // flex-flow: row wrap;
+    // justify-self: center;
+    // flex: 1;
+    // margin-left: 2px;
+    // justify-content: flex-start;
+    // align-content: flex-start;
+    // @media screen and (max-width: 1024px) {
+    //     margin-top: 20px;
+    // }
+}

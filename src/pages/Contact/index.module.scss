@@ -1,0 +1,18 @@
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    overflow: hidden;
+    height: 100%;
+    flex: 1;
+}
+.you {
+    color: #3399fc;
+    font-size: 14px;
+}
+
+.avatarContainer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}

@@ -1,0 +1,9 @@
+.activeStatus {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    .label {
+        font-size: 14px;
+        color: #bdbdbd;
+    }
+}

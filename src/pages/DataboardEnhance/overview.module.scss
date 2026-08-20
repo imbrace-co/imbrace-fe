@@ -1,0 +1,49 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    &.expand {
+        grid-template-columns: 1fr auto;
+    }
+    &.isContacts {
+        container-type: inline-size;
+        grid-template-columns: 400px 1fr auto;
+
+        @container (max-width: 1150px) {
+            grid-template-columns: 400px 1fr 72px;
+            .relationBoards {
+                background: white;
+                z-index: 1;
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+            }
+        }
+
+        .relationBoards {
+            box-shadow: -2px 0px 24px 0px #e0e0e033, -4px 0px 8px 0px #bdbdbd14;
+
+            > div {
+                border-left: 1px solid var(--color-light-3);
+            }
+        }
+    }
+    .recordDetail {
+        height: 100vh;
+        z-index: 1;
+        overflow: hidden;
+        box-shadow: 2px 0px 24px 0px #e0e0e033, 4px 0px 8px 0px #bdbdbd14;
+    }
+
+    .relationBoards {
+        overflow-y: auto;
+        overflow-x: hidden;
+        > div {
+            border: none;
+            height: 100%;
+        }
+    }
+}

@@ -1,0 +1,253 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.controlsCard {
+    padding: 16px;
+    border: 1px solid var(--color-light-2);
+    border-radius: 8px;
+    background: var(--color-light-1);
+}
+
+.controlsRow {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.controlItem {
+    min-width: 220px;
+}
+
+.status {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.statusDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-light-4);
+}
+
+.statusDotActive {
+    background: var(--color-green-1);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.statsRow {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.statCard {
+    padding: 12px 16px;
+    border: 1px solid var(--color-light-2);
+    border-radius: 8px;
+    background: var(--color-light-1);
+    min-width: 220px;
+}
+
+.tracesContainer {
+    display: flex;
+    border: 1px solid var(--color-light-2);
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 600px;
+    height: calc(100vh - 340px);
+    background: var(--color-light-1);
+}
+
+.tracesList {
+    flex: 0 0 320px;
+    border-right: 1px solid var(--color-light-2);
+    overflow: auto;
+}
+
+.traceItem {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--color-light-2);
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.traceItem:hover {
+    background: var(--color-light-2);
+}
+
+.traceItemSelected {
+    background: rgba(0, 102, 204, 0.08);
+    border-left: 3px solid var(--color-primary-1);
+    padding-left: 11px;
+}
+
+.traceNameRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.traceMetaRow {
+    margin-top: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+.spansPanel {
+    flex: 1;
+    overflow: auto;
+    padding: 16px;
+    background: var(--color-light-1);
+}
+
+.emptyPanel {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-light-5);
+}
+
+.section {
+    border: 1px solid var(--color-light-2);
+    border-radius: 8px;
+    background: var(--color-light-1);
+    padding: 12px 14px;
+    width: 100%;
+}
+
+.sectionTitle {
+    margin-bottom: 10px;
+    color: var(--color-light-6);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.detailRow {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 3px 0;
+    min-width: 0;
+}
+
+.detailLabel {
+    flex: 0 0 120px;
+    color: var(--color-light-5);
+}
+
+.detailValue {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.spanItem {
+    border: 1px solid var(--color-light-2);
+    border-left: 3px solid var(--color-primary-1);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.spanItem:hover {
+    background: var(--color-light-2);
+}
+
+.spanHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.spanName {
+    color: var(--color-primary-1);
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toggleChevron {
+    display: inline-block;
+    transition: transform 0.15s ease;
+    color: var(--color-light-5);
+    font-size: 11px;
+}
+
+.toggleChevronCollapsed {
+    transform: rotate(-90deg);
+}
+
+.spanDetails {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--color-light-2);
+}
+
+.attrRow {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    padding: 2px 0;
+    align-items: flex-start;
+    min-width: 0;
+}
+
+.attrKey {
+    color: var(--color-light-5);
+    flex: 0 0 auto;
+}
+
+.attrValue {
+    flex: 1 1 auto;
+    min-width: 0;
+    color: var(--color-light-8);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.errorBox {
+    border: 1px solid rgba(255, 0, 0, 0.25);
+    background: rgba(255, 0, 0, 0.05);
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: var(--color-danger-1);
+}
+
+
+
+

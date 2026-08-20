@@ -1,0 +1,35 @@
+.headerRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.tabs {
+    min-width: 320px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    flex: 1;
+}
+
+.driveSearch {
+    width: min(492px, 48vw);
+}
+
+.plusButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    padding: 0;
+}
+
+.driveContent {
+    padding: 10px 0;
+}
+
+

@@ -1,0 +1,150 @@
+.messageListInputRoot {
+    min-height: 200px;
+    padding: 10px 21px;
+    position: relative;
+    z-index: 1;
+    
+    .messageListInputToolBarRoot {
+        &.messageToolDisable {
+            pointer-events: none;
+            opacity: .5;
+        }
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2px;
+        .messageListInputToolbar {
+            display: flex;
+            flex-direction: row;
+            gap: 2px;
+            button {
+                div {
+                    display: inline-flex;
+                }
+            }
+        }
+        .sendContainer {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            button {
+                div {
+                    display: inline-flex;
+                }
+            }
+            .messageSendLoadingRoot {
+                width: 40px;
+                height: 40px;
+                padding: 8px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}
+.template {
+    .tag {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding: 5px 14px;
+        background-color: var(--color-primary-1);
+        display: inline-flex;
+        color: white;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 30px;
+    }
+    .whatsAppTemplate {
+        border: 1px solid var(--color-primary-1);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        box-sizing: border-box;
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            vertical-align: middle;
+        }
+        .container {
+            line-break: anywhere;
+            overflow-y: auto;
+            height: 110px;
+            border-radius: 4px;
+            &::-webkit-scrollbar {
+                width: 7.5px;
+                background-color: transparent;
+            }
+            &::-webkit-scrollbar-track {
+                background-color: transparent;
+            }
+            &::-webkit-scrollbar-thumb {
+                box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+                border-radius: 10px;
+                background-color: rgba(130, 130, 130, 0.7);
+                &:focus,
+                &:active,
+                &:hover {
+                    background-color: rgba(130, 130, 130, 1);
+                }
+            }
+            .inner {
+                padding: 16px 10px;
+                white-space: pre-wrap;
+
+                .variableText {
+                    display: inline-flex;
+                    align-items: center;
+                    padding: 2px 6px;
+                    align-items: center;
+                    min-width: 26px;
+                    height: 24px;
+                    border-radius: 4px;
+                    &.webStyle {
+                        display: inline-flex;
+                        margin-top: 16px;
+                    }
+                    &:hover {
+                        background-color: var(--color-light-2);
+                    }
+                }
+
+                .variableManualText {
+                    min-height: 23px;
+                    padding: 2px 6px;
+                    display: flex;
+                    justify-content: space-between;
+                    border-radius: 4px;
+                    &:hover {
+                        background-color: var(--color-light-2);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.selectContainer {
+    height: 23px !important;
+    border: 0;
+    border-radius: 4px;
+}
+
+.selectContainer:hover {
+    background-color: var(--color-light-2);
+}
+
+.conversationInputArea {
+    p , li > div {
+        color: #BDBDBD;
+        strong {
+            color: #4F4F4F;
+        }
+    }
+    > div:nth-of-type(2) > div {
+       border-radius: 0 0 4px 4px;
+       border-top: none;
+    }
+}

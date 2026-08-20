@@ -1,0 +1,29 @@
+.floatingEdges {
+    flex-direction: column;
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.floatingEdges .react-flow__handle {
+    opacity: 0;
+}
+/*.react-flow__handle#secondaryNodeHandle {*/
+/*opacity: 1 !important;*/
+/*opacity: 1;*/
+/*}*/
+
+.react-flow__node {
+    border-radius: 8px;
+}
+.react-flow__node.react-flow__node-channel360 {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.react-flow__edge-path {
+    stroke-width: 2px;
+}

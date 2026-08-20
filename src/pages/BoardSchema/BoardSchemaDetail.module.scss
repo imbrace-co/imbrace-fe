@@ -1,0 +1,536 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--color-light-1);
+}
+
+.topBar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 32px 20px 37px;
+    border-bottom: 1px solid var(--color-light-3);
+    background: var(--color-light-1);
+}
+
+.topTitle {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--color-light-7);
+    margin: 0;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-secondary-1);
+
+    a,
+    button {
+        background: none;
+        border: none;
+        color: var(--color-secondary-1);
+        font-weight: 400;
+        text-decoration: underline;
+        cursor: pointer;
+        padding: 0;
+        font: inherit;
+    }
+    .crumbCurrent {
+        color: var(--color-primary-1);
+        font-weight: 400;
+        text-decoration: underline;
+    }
+}
+
+// Pin the title row + tabs and let only the content region scroll (both tabs).
+.body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 21px 32px 32px 37px;
+}
+
+.tabContent {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: auto;
+
+    // The wrapper is its own formatting context, so the first child's top margin
+    // no longer collapses with the tabs' bottom margin. Zero it so the gap below
+    // the tabs is exactly the tabs' margin-bottom (24px), not stacked.
+    > :first-child {
+        margin-top: 0;
+    }
+}
+
+.titleRow {
+    display: flex;
+    flex-shrink: 0;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 0;
+}
+
+.titleLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    // Take the available width and allow the team chips to wrap within the left
+    // area so a long team list never pushes/shrinks the right-side actions.
+    flex: 1 1 auto;
+    min-width: 0;
+
+    .schemaName {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--color-light-7);
+        margin: 0;
+    }
+    .tagsRow {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        .accessTeamIcon {
+            width: 24px;
+            height: 24px;
+            flex: 0 0 auto;
+        }
+
+        .roleChip {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 12px;
+            background: var(--color-accent-yellow-5);
+            color: var(--color-light-7);
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 400;
+            // Keep each team name on a single line; the row wraps, not the name.
+            white-space: nowrap;
+        }
+    }
+}
+
+.titleRight {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    // Never shrink — the Model Profile / Versions actions keep their own area.
+    flex: 0 0 auto;
+}
+
+.headerAction {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-light-6);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+
+    &:hover {
+        background: var(--color-grey-3);
+    }
+}
+
+.headerActionIcon {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+}
+
+.tabs {
+    display: flex;
+    flex-shrink: 0;
+    gap: 0;
+    border-bottom: 1px solid var(--color-light-3);
+    margin: 22px 0 24px;
+
+    .tabBtn {
+        position: relative;
+        background: none;
+        border: none;
+        padding: 8px 12px;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--color-light-5);
+        cursor: pointer;
+
+        &.tabActive {
+            color: var(--color-primary-1);
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: -1px;
+                height: 2px;
+                background: var(--color-primary-1);
+            }
+        }
+    }
+}
+
+.syncedNotice {
+    color: #EE7D7D;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 20px 0;
+}
+
+.tableWrap {
+    border: 1px solid var(--color-light-3);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+        background: #eaf3fc;
+        text-align: left;
+        font-weight: 800;
+        font-size: 14px;
+        color: var(--color-light-7);
+        padding: 10px 5px;
+        border-bottom: 1px solid var(--color-light-3);
+    }
+    td {
+        padding: 8px 5px;
+        border-bottom: 1px solid var(--color-light-3);
+        vertical-align: middle;
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-light-7);
+
+        input,
+        .MuiInputBase-input,
+        .MuiSelect-select {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--color-light-7);
+        }
+    }
+    tr:last-child td {
+        border-bottom: none;
+    }
+}
+
+.colName {
+    width: 220px;
+}
+
+.colType {
+    width: 200px;
+}
+
+.colRole {
+    width: 180px;
+}
+
+.colKebab {
+    width: 40px;
+    text-align: right;
+}
+
+.cellInput {
+    width: 100%;
+}
+
+.promptCell {
+    position: relative;
+}
+
+.promptInput {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.expandPromptBtn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.addAttrBtn {
+    margin-top: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: var(--color-primary-1);
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    padding: 6px 4px;
+}
+
+.formFooter {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.linkedCardsRow {
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) minmax(260px, 1fr);
+    align-items: stretch;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.linkedCard {
+    border: 1px solid var(--color-light-3);
+    border-radius: 8px;
+    padding: 35px 16px 35px 16px;
+    background: var(--color-light-1);
+    display: flex;
+    flex-direction: column;
+    box-shadow:
+        0 2px 16px 0 color-mix(in srgb, var(--color-light-3) 20%, transparent),
+        0 1px 8px 0 color-mix(in srgb, var(--color-light-4) 8%, transparent);
+
+    .linkedTitle {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--color-light-5);
+        margin: 0 0 23px;
+    }
+
+    .linkedList {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .linkedItem {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            background: var(--color-primary-8);
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--color-primary-1);
+            cursor: pointer;
+
+            &:hover {
+                background: color-mix(in srgb, var(--color-primary-8) 80%, var(--color-primary-1) 20%);
+            }
+        }
+    }
+    .linkedEmpty {
+        color: var(--color-light-5);
+        font-size: 13px;
+    }
+}
+
+.attrModalGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 24px;
+
+    :global(.MuiInputBase-input),
+    :global(.MuiSelect-select) {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-light-7);
+    }
+
+    :global(.MuiFormLabel-root),
+    :global(.MuiInputLabel-root),
+    :global(.MuiFormControlLabel-label) {
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--color-light-7);
+    }
+}
+
+.attrModalCheckboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.attrModalFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.deleteLink {
+    background: none;
+    border: none;
+    color: var(--color-danger-1);
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 4px 8px;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.panelSection {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 32px 16px;
+}
+
+.schemaSidePanel {
+    :global(.MuiDrawer-paper) {
+        top: 56px !important;
+        height: calc(100% - 56px) !important;
+    }
+    :global(.MuiBackdrop-root) {
+        top: 56px !important;
+        height: calc(100% - 56px) !important;
+    }
+}
+
+.versionItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    .versionLabel {
+        font-weight: 800;
+        color: var(--color-light-7);
+        font-size: 14px;
+    }
+    .versionTime {
+        color: var(--color-light-5);
+        font-size: 14px;
+    }
+    .versionBy {
+        font-size: 14px;
+        color: var(--color-light-5);
+
+        .versionAuthor {
+            color: var(--color-primary-1);
+            text-decoration: underline;
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+}
+
+/* ---- Build a model wizard ---- */
+
+.choiceGrid {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.choiceCard {
+    width: 281px;
+    height: 241px;
+    padding: 16px;
+    background: var(--color-light-1);
+    cursor: pointer;
+    border: 1px solid var(--color-light-3);
+    border-radius: 8px;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    box-shadow:
+        0 2px 16px 0 color-mix(in srgb, var(--color-light-3) 20%, transparent),
+        0 1px 8px 0 color-mix(in srgb, var(--color-light-4) 8%, transparent);
+    transition: border-color 0.15s;
+
+    &:hover {
+        border-color: var(--color-primary-1);
+    }
+
+    .choiceTitle {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--color-light-7);
+        margin: 0;
+    }
+    .choiceDesc {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-light-5);
+        margin: 0;
+    }
+}
+
+.uploadCard {
+    margin-top: 24px;
+    border: 1px dashed var(--color-primary-1);
+    border-radius: 8px;
+    background: var(--color-green-3);
+    height: 466px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+    padding: 24px;
+    cursor: pointer;
+
+    .uploadTitle {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-light-7);
+        margin: 0;
+    }
+    .uploadHint {
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--color-light-5);
+        margin: 0;
+        max-width: 280px;
+    }
+    .uploadGoBack {
+        margin-top: 24px;
+        background: none;
+        border: none;
+        color: var(--color-light-7);
+        text-decoration: underline;
+        cursor: pointer;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .uploadFiles {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-size: 12px;
+        color: var(--color-light-7);
+    }
+}
+
+.uploadHidden {
+    display: none;
+}

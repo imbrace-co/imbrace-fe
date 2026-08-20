@@ -1,0 +1,95 @@
+.tabsRoot:global(.MuiTabs-root) {
+    min-height: unset;
+}
+
+.tabsRoot {
+    :global(.MuiTabs-scroller) {
+        overflow-x: auto !important;
+        min-height: unset;
+    }
+
+    :global(.MuiTabs-flexContainer) {
+        gap: 4px;
+        align-items: center;
+        min-height: unset;
+    }
+
+    :global(.MuiTab-root) {
+        min-width: auto;
+        min-height: unset;
+        padding: 8px 8px 12px;
+        text-transform: none;
+        color: var(--color-light-5);
+    }
+
+    :global(.MuiTab-root):hover {
+        color: #156df2;
+        background-color: transparent;
+    }
+
+    :global(.MuiTab-root) .menuButton {
+        display: none;
+    }
+
+    :global(.MuiTab-root) .tabCount {
+        display: none;
+    }
+
+    :global(.MuiTab-root):hover .menuButton,
+    :global(.MuiTab-root.Mui-selected) .menuButton {
+        display: inline-flex;
+    }
+
+    :global(.MuiTab-root):hover .tabCount,
+    :global(.MuiTab-root.Mui-selected) .tabCount {
+        display: inline;
+    }
+}
+
+.tabLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-transform: none;
+    font-size: 16px;
+    font-weight: 600;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.tabName {
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tabCount {
+    color: inherit;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: opacity 0.12s ease;
+}
+
+.menuButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    margin-left: 4px;
+    color: #156df2;
+    cursor: pointer;
+    transition: opacity 0.12s ease;
+
+    & > svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    &:hover {
+        background: var(--color-light-3);
+    }
+}

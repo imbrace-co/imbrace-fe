@@ -1,0 +1,99 @@
+.crmContainer {
+    padding-bottom: 0 !important ;
+}
+
+.searchBarContainer {
+    position: relative;
+    overflow: hidden;
+}
+
+.segmentationButton {
+    padding: 7px 12px;
+    color: var(--color-light-4);
+    border: 1px solid var(--color-light-3);
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+        border-color: var(--color-primary-1);
+    }
+}
+
+.previewContainer {
+    background: white;
+    max-width: 650px;
+    margin: 0 auto;
+    height: 100%;
+    .content {
+        padding: 48px;
+    }
+    .file {
+        width: 500px;
+        background: #fafafa;
+        border-radius: 4px;
+        padding: 8px 12px;
+        color: var(--color-light-7);
+    }
+}
+
+.attachmentRow {
+    height: 94px !important;
+    min-height: 94px !important;
+}
+
+.container {
+    z-index: 100;
+    :global {
+        .simplebar-content-wrapper {
+            height: 100% !important;
+        }
+    }
+}
+
+.fieldContainer {
+    position: relative;
+    width: 100%;
+    &:hover {
+        .dragContainer {
+            visibility: visible;
+            button {
+                transition: visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        }
+    }
+    &.disabled {
+        pointer-events: none;
+    }
+    .dragContainer {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        align-items: flex-start;
+        top: 36px;
+        left: -26px;
+        padding-right: 2px;
+        visibility: hidden;
+        button {
+            cursor: grab;
+            transition: none;
+        }
+        &:hover {
+            visibility: visible;
+        }
+    }
+}
+
+.menuTitleContainer {
+    padding: 20px 32px;
+    border-bottom: 1px solid #e0e0e0;
+    width: 100%;
+}
+
+.boardContainer {
+    padding-top: 20px;
+    padding-bottom: 0px;
+    padding-left: 32px;
+    padding-right: 32px;
+    width: 100%;
+    height: 100%;
+}

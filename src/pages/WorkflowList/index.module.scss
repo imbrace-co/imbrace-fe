@@ -1,0 +1,30 @@
+.workflowContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 142px;
+    background-color: #ffffff;
+    z-index: 2;
+    gap: 24px;
+    margin-bottom: 8px;
+
+    .workflowRightContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 12px;
+    }
+    .tabContainer {
+        flex: 1;
+        border-bottom: 1px solid #e0e0e0;
+    }
+}
+.workflowTableContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    z-index: 1;
+}

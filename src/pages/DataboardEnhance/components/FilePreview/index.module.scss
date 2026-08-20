@@ -1,0 +1,20 @@
+.switchFile {
+    .fileInfo {
+        > div:first-child {
+            font-weight: 600;
+        }
+    }
+    .fileImage {
+        padding: 5vh 1vw;
+        max-height: 70vh;
+        img {
+            width: 80%;
+        }
+    }
+    .fileNotImage {
+        margin: 7vh 0;
+        button {
+            height: 44px;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+.card {
+    overflow: hidden;
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid var(--color-secondary-4);
+    box-shadow: 0px 2px 16px 0px #e0e0e033, 0px 1px 8px 0px #bdbdbd14;
+
+    transition: all 0.3s ease;
+    height: 240px;
+}

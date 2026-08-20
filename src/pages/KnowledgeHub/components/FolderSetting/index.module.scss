@@ -1,0 +1,89 @@
+.boardDesc {
+    position: relative;
+   
+}
+.boardLimit{
+    position: absolute;
+    top: 3px;
+    right: 0;
+    font-size: 12px;
+}
+.boardDescOverLimit {
+    color: #e53c3c;
+}
+.boardDescIsLimit {
+    color: #828282;
+}
+.tagButton {
+    &:hover {
+        cursor: pointer;
+        color: #1d89f2!important;
+        transform: scale(1.01);
+        transition: transform easy 1s;
+    }
+}
+
+.tagButtonDisabled {
+    opacity: .5;
+}
+
+.importFileTab {
+    font-size: 16;
+    font-weight: 800;
+    color: var(--color-light-7);
+    text-transform: uppercase; 
+}
+.tagArea {
+    border: 1px solid #E0E0E0;
+    padding: 5px 5px;
+    border-radius: 4px;
+    min-height: 80px;
+    >div {
+        margin: 5px;
+    }
+    *{
+        font-size: 12px;
+    }
+    input, input:focus {
+        outline: none;
+        box-shadow: none;
+        border: 1px solid #fba532!important;
+        border-radius: 5px;
+        padding: 3px 10px;
+        margin-left: 5px;
+        font-weight: 600;
+    }
+    .tagInput {
+        gap: 0;
+        align-items: stretch!important;
+        span:hover {
+            cursor: pointer;
+        }
+        input {
+            border-radius: 5px 0 0 5px;
+        }
+        button {
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+            border: 1px solid #fba532 !important
+        }
+    }
+}
+.tagGenerateEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tagsButtonCommon {
+  border: 1px solid var(--color-primary-1);
+  color: var(--color-primary-1);
+  background: var(--color-light-1) !important;
+  border-radius: 8px;
+  padding: 6px 24px;
+  font-size: 14px;
+  font-weight: 800;
+  margin-left: 10px!important;
+  text-transform: initial!important;
+}

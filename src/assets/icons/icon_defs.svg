@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    style="position: absolute;visibility: hidden;top:0; width:0;">
+    <defs>
+        <linearGradient id="web-svg-linear-gradient" x1="5.18571" y1="4.62857" x2="22.2" y2="22.9429" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#338DFF"/>
+            <stop offset="0.89" stop-color="#156DE6"/>
+        </linearGradient>
+        <linearGradient id="wts-linear-gradient" x1="12.5" y1="23.1857" x2="12.5" y2="-1.81429" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#27C144"/>
+            <stop offset="1" stop-color="#5FEF7C"/>
+        </linearGradient>
+        <linearGradient id="wechat-linear-gradient" x1="12.5" y1="23.5" x2="12.5" y2="-1.5" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#00C15B"/>
+            <stop offset="0.63" stop-color="#00D277"/>
+            <stop offset="1" stop-color="#00DC80"/>
+        </linearGradient>
+        <linearGradient id="ig_linear_1" x1="2.69595" y1="25.2162" x2="17.9595" y2="5.41892"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFDD55" />
+            <stop offset="0.1" stop-color="#FFDD55" />
+            <stop offset="0.5" stop-color="#FF543E" />
+            <stop offset="1" stop-color="#C837AB" />
+        </linearGradient>
+        <linearGradient id="ig_linear_2" x1="-4.25" y1="-3.06081" x2="14.0676" y2="13.9595"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#3771C8" />
+            <stop offset="0.26" stop-color="#3771C8" />
+            <stop offset="0.52" stop-color="#4A42DE" stop-opacity="0.59" />
+            <stop offset="0.75" stop-color="#591EF0" stop-opacity="0.27" />
+            <stop offset="0.91" stop-color="#6208FA" stop-opacity="0.07" />
+            <stop offset="1" stop-color="#6600FF" stop-opacity="0" />
+        </linearGradient>
+        <clipPath id="mail_clip">
+            <rect width="25" height="25" fill="white"/>
+        </clipPath>
+    </defs>
+</svg>

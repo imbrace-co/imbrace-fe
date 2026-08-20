@@ -1,0 +1,21 @@
+.container {
+    // background: #d9effe1f;
+    height: 100vh;
+    padding-top: 16px;
+    // display: flex;
+    // flex-direction: column;
+    max-height: 100vh;
+    overflow: scroll;
+}
+
+.overview {
+    padding: 8px 16px;
+
+    .inner {
+        padding: 24px;
+        background: white;
+        border: 1px solid var(--color-light-3);
+        border-radius: 8px;
+        box-shadow: 0px 16px 24px 0px #e0e0e033, 0px 0px 4px 0px #e0e0e0e0;
+    }
+}

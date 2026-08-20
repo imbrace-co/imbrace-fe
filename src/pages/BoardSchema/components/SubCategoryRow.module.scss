@@ -1,0 +1,102 @@
+.wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+    padding-left: 6px;
+}
+
+.summaryRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.summary {
+    font-size: 14px;
+    color: var(--color-light-5);
+}
+
+.breadcrumbParent {
+    color: var(--color-primary-1);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.breadcrumbSub {
+    color: var(--color-light-8);
+    font-weight: 800;
+}
+
+.addLink {
+    color: #156DF2;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.itemsRow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-left: -8px;
+}
+
+.item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--color-light-7);
+    cursor: pointer;
+    user-select: none;
+
+    &.selected {
+        background: #E8F1FF;
+    }
+
+    .menuIcon {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &:hover .menuIcon,
+    &.selected .menuIcon {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+.menuIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    margin-left: 2px;
+    border-radius: 4px;
+    color: #156DF2;
+    transition: opacity 0.12s ease;
+
+    &:hover {
+        background: var(--color-light-3);
+    }
+}
+
+.itemIcon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+}

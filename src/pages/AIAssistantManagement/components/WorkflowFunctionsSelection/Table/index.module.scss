@@ -1,0 +1,63 @@
+.switchLabel {
+    color: var(--color-light-7);
+}
+.switchLabelDisabled {
+    color: var(--color-light-4);
+}
+.tableRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+    padding-left: 32px;
+    min-height: 64px;
+    height: 90px;
+    position: relative;
+    &.evenBackground {
+        background-color: #F2F2F2;
+    }
+    &.selected {
+        background-color: #D9EFFE;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+    &.tableHeader {
+        z-index: 2;
+        background-color: #FEE5C5;
+        color: var(--color-light-7);
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 150%;
+        padding-left: 32px;
+        > div {
+            &:first-child {
+                cursor: initial;
+            }
+            font-size: 16px;
+            &:last-child {
+                width: 100%;
+            }
+        }
+    }
+    .cell {
+        padding: 0 8px;
+        width: 100%;     
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .operation {
+        padding-right: 20px;
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+.empty {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

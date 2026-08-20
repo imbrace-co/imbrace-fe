@@ -1,0 +1,475 @@
+.wrap {
+    padding: 32px 32px 24px;
+    overflow: auto;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.headerTitle {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 4px;
+}
+
+.headerDesc {
+    color: #828282;
+    margin: 0;
+}
+
+/* ---- Build mode cards ---- */
+.modeCards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.modeCard {
+    width: 281px;
+    height: 241px;
+    padding: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &:hover {
+        border-color: #156df2;
+        box-shadow: 0 2px 12px rgba(21, 109, 242, 0.12);
+    }
+
+    .modeCardText {
+        .modeCardTitle {
+            display: block;
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0 0 8px;
+        }
+        .modeCardDesc {
+            color: #828282;
+            margin: 0;
+            line-height: 1.45;
+        }
+    }
+}
+
+/* ---- Upload zone ---- */
+.uploadZone {
+    border: 2px dashed #c8e6c9;
+    border-radius: 8px;
+    background: #e9fbf0;
+    height: 466px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    padding: 24px;
+
+    &.busy {
+        opacity: 0.6;
+        cursor: wait;
+    }
+
+    .uploadTitle {
+        font-weight: 600;
+        margin-top: 8px;
+    }
+    .uploadDesc {
+        font-size: 13px;
+        color: #4f4f4f;
+        margin-top: 4px;
+    }
+    .goBack {
+        margin-top: 16px;
+        color: #156df2;
+        font-size: 13px;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+/* ---- Schema card / table ---- */
+.schemaCard {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fff;
+    padding: 20px;
+}
+
+.detectedBadge {
+    display: inline-flex;
+    align-items: center;
+    background: #1f9d57;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+
+.matchPct {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-left: 8px;
+}
+
+.table {
+    width: 100%;
+    margin-top: 12px;
+    box-sizing: border-box;
+
+    // Kill MUI's outlined-input "notch" gap that leaves a white slit on the
+    // top border when no label is rendered (visible in schema table inputs).
+    // The fieldset sits with top:-5px to make room for the floating label;
+    // pin it to top:0 and hide the legend so the border is a clean rectangle.
+    :global(.MuiOutlinedInput-notchedOutline) {
+        top: 0 !important;
+    }
+    :global(.MuiOutlinedInput-notchedOutline) > legend {
+        display: none !important;
+    }
+}
+
+.tableHead {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1.4fr) 96px minmax(0, 2.2fr) minmax(0, 1.4fr);
+    background: #e8f0fe;
+    min-height: 44px;
+    align-items: center;
+    border-radius: 4px 4px 0 0;
+    > * {
+        min-width: 0;
+        font-weight: 600;
+        font-size: 13px;
+        padding: 0 8px;
+        color: #1a1a1a;
+    }
+}
+
+.tableRow {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1.4fr) 96px minmax(0, 2.2fr) minmax(0, 1.4fr);
+    border-bottom: 1px solid #f0f0f0;
+    align-items: center;
+    min-height: 52px;
+    .cell {
+        padding: 4px;
+        min-width: 0;
+    }
+}
+
+/* editable -> white inputs, read-only -> light grey */
+.editable {
+    :global {
+        // FieldText is a MUI InputBase (variant "standard"): the rounded 1px border lives on
+        // an emotion `& > div` wrapper while the raw <input> (.MuiInputBase-input) is square.
+        // Painting that square input white made its corners bleed past the wrapper's 4px
+        // radius — the white corner streak. Put the fill on .MuiInputBase-root and round it
+        // to 4px so white follows the border, and keep the raw input transparent. Skip the
+        // disabled state so the always-disabled Sample Data column stays grey.
+        .MuiInputBase-root:not(.Mui-disabled) {
+            background: #fff;
+            border-radius: 4px;
+        }
+        .MuiInputBase-input {
+            background: transparent;
+        }
+
+        // FieldSelect (AI Logic) is a custom @imbrace select (.imbrace_selectContainer_*) with
+        // a transparent background, so it read grey next to the white text columns. Fill it
+        // white to match — but exclude the disabled (locked-type) state so the vendor grey
+        // still wins for selects locked via lock_type / field_id in the inline-edit flow.
+        [class*='selectContainer']:not([class*='disabled']) {
+            background: #fff;
+        }
+    }
+}
+.readonly {
+    input,
+    textarea {
+        background: #f2f2f2;
+    }
+    .tableRow {
+        background: #fafafa;
+    }
+}
+
+.actionsRow {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+/* Build Manually / Edit Schema — bare table, no card wrapper */
+.editingWrap {
+    width: 100%;
+}
+
+.addAttrLink {
+    display: inline-block;
+    margin-top: 10px;
+    color: #156df2;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ---- Linked schema cards (overview) ---- */
+.linkedCard {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fff;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    min-height: 186px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+
+    /* The actively-edited card pops above its siblings: wider (extends into the
+       container padding), lifted with a blue-tinted shadow, and blue-accented. */
+    &.linkedCardEditing {
+        height: auto;
+        gap: 12px;
+        margin-left: -16px;
+        margin-right: -16px;
+        padding: 22px 24px;
+        border-color: #156df2;
+        box-shadow: 0 10px 30px rgba(21, 109, 242, 0.12);
+        position: relative;
+        z-index: 1;
+        transition: box-shadow 0.18s ease, margin 0.18s ease;
+    }
+
+    .linkedHead {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .linkedTitle {
+        font-size: 14px;
+        color: #1a1a1a;
+        b {
+            color: #156df2;
+        }
+    }
+    .linkedHint {
+        font-size: 13px;
+        color: #828282;
+        margin: 0;
+    }
+    .boardInvalid {
+        font-size: 13px;
+        color: #e53c3c;
+        margin: 0;
+    }
+    .dataBoardRow {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        color: #1a1a1a;
+        u {
+            text-decoration: underline;
+        }
+    }
+    .editWarning {
+        color: #e53c3c;
+        font-size: 13px;
+        margin: 0;
+    }
+    .headActions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+.linkAnother {
+    border: 1px dashed #828282;
+    border-radius: 8px;
+    background: #fff;
+    height: 186px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #156df2;
+    cursor: pointer;
+
+    .linkAnotherPlus {
+        font-size: 22px;
+        line-height: 1;
+        font-weight: 400;
+    }
+    .linkAnotherLabel {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+}
+
+/* ---- Select from list ---- */
+.listToolbar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 16px;
+}
+
+.listTabs {
+    flex: 1 1 auto;
+    min-width: 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.listSearch {
+    flex: 0 0 280px;
+    width: 280px;
+    padding-bottom: 6px;
+}
+
+.modelGrid {
+    display: grid;
+    /* auto-fill (not auto-fit) keeps empty tracks so a partial last row stays
+       at one column width and left-aligned instead of stretching 1-2 cards wide. */
+    grid-template-columns: repeat(auto-fill, minmax(281px, 1fr));
+    gap: 16px;
+}
+
+.modelCard {
+    width: 100%;
+    height: 232px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fff;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modelCardTop {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modelCardHead {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #1a1a1a;
+}
+
+.modelStats {
+    display: flex;
+    gap: 10px;
+}
+
+.modelStat {
+    flex: 1;
+    background: #f5f5f5;
+    border-radius: 12px;
+    padding: 18px 12px;
+    text-align: center;
+
+    .statNum {
+        font-weight: 700;
+        font-size: 18px;
+        color: #1a1a1a;
+    }
+    .statLabel {
+        font-size: 12px;
+        color: #828282;
+        margin-top: 8px;
+    }
+}
+
+.modelCardBottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.modelCategory {
+    font-size: 11px;
+    color: #9e9e9e;
+    text-align: right;
+    margin-bottom: 8px;
+}
+
+.modelCardFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 8px;
+}
+
+.modelSchemaLink {
+    color: #156df2;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+}
+
+.modelEmpty {
+    grid-column: 1 / -1;
+    font-size: 13px;
+    color: #9e9e9e;
+    padding: 24px 0;
+}
+
+/* Deployment Access — selected teams shown as removable tags BELOW the field
+   (matching the /schemas Model Profile dialog) instead of chips inside the input. */
+.teamTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.teamTag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #fdeecf;
+    color: #1a1a1a;
+    font-size: 13px;
+    line-height: 1;
+    padding: 6px 10px;
+    border-radius: 14px;
+}
+
+/* model preview modal */
+.modalTitle {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    b {
+        color: #156df2;
+    }
+}
+

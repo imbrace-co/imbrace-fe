@@ -1,0 +1,56 @@
+{
+    "extends": ["airbnb-typescript", "airbnb/hooks", "plugin:@typescript-eslint/recommended", "react-app", "react-app/jest"],
+    "plugins": ["@typescript-eslint", "simple-import-sort", "unused-imports"],
+    "root": true,
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "rules": {
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
+        "indent": "off",
+        "@typescript-eslint/consistent-type-imports": 1,
+        "comma-dangle": "off",
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [".js", ".jsx", ".tsx"]
+            }
+        ],
+        "import/no-anonymous-default-export": [
+            "error",
+            {
+                "allowObject": true
+            }
+        ],
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "import/no-extraneous-dependencies": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "import/no-duplicates": "warn",
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": "off"
+    },
+
+    "overrides": [
+        {
+            "files": ["**/*.js?(x)", "**/*.ts?(x)", "**/*.d.ts"],
+            "rules": {
+                "@typescript-eslint/indent": "off",
+                "@typescript-eslint/naming-convention": "off",
+                "import/extensions": "off"
+            }
+        }
+    ]
+}

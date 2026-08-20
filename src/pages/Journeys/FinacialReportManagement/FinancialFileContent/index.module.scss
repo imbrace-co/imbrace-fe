@@ -1,0 +1,116 @@
+.container {
+    width: 100%;
+}
+
+.contentContainer {
+    width: 100%;
+    padding: 32px 32px 80px 32px;
+}
+
+.dropZoneContainer {
+    height: 240px;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.newFieldForm {
+    margin-bottom: 24px;
+    padding: 16px;
+    border: 1px dashed #9e9e9e;
+    border-radius: 4px;
+}
+
+.previewContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.paginationContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* New styles for the table and other elements */
+.formControl {
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.headerContainer {
+    width: 100%;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tableContainer {
+    height: 100%;
+    overflow: auto;
+    box-shadow: none;
+    margin-bottom: 24px;
+
+    table {
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+}
+
+.tableHead {
+    background-color: #d9effe;
+
+    tr {
+        background-color: #d9effe;
+
+        th {
+            color: var(--color-light-7);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 150%;
+            background-color: #d9effe;
+        }
+    }
+}
+
+.tableRowEven {
+    background-color: #f2f2f2;
+
+    td {
+        font-size: 14px;
+    }
+}
+
+.tableRowOdd {
+    background-color: transparent;
+
+    td {
+        font-size: 14px;
+    }
+}
+
+.paginationControls {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rowsPerPageControl {
+    min-width: 120px;
+}
+
+.actionsContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}

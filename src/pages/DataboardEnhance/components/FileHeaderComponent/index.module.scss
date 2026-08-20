@@ -1,0 +1,21 @@
+
+.subFolder, .addSubFolder {
+    &:hover {
+        cursor: pointer;
+    }
+}
+.addSubFolder {
+    &:hover {
+        scale: 1.03;
+    }
+}
+.cardDropdown {
+    transform: rotate(90deg);
+    margin-left: 20px!important;
+}
+.showFolderSetting {
+    visibility: visible;
+}
+.hideFolderSetting {
+    visibility: hidden;
+}

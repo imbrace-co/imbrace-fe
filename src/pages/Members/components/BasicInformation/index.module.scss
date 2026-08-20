@@ -1,0 +1,102 @@
+@mixin align-center {
+    display: flex;
+    align-items: center;
+}
+.basicInformation {
+    width: 100%;
+    height: 500px;
+    .profileContainer {
+        @include align-center;
+        gap: 24px;
+        padding: 11px 16px 32px 32px;
+        .uploadContainer {
+            border: 1px solid red;
+            .avatarCursor {
+                cursor: pointer;
+            }
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            > button {
+                visibility: visible;
+            }
+        }
+        .profileInfoContainer {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            .profileInfoMarginContainer {
+                margin-bottom: 15px 0px;
+            }
+            .profileInfoSubContainer {
+                @include align-center;
+                flex: 1 0 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                &.withGap {
+                    gap: 12px;
+                }
+                .name {
+                    min-width: 26%;
+                }
+            }
+        }
+    }
+
+    & .header {
+        @include align-center;
+        justify-content: flex-end;
+        padding: 0 11px;
+        .edit {
+            @include align-center;
+        }
+    }
+}
+.basicInfoContainer {
+    @include align-center;
+    flex-direction: column;
+    flex: 1;
+    padding: 0 32px;
+    width: 100%;
+    .basicInfoSubContainer {
+        @include align-center;
+        width: 100%;
+        margin-bottom: 15px;
+        max-height: 1.125rem;
+        &:first-child {
+            margin-top: 15px;
+        }
+        .basicInfoItemContainer {
+            display: inline-flex;
+            align-items: center;
+            flex: 1 0 100%;
+        }
+        .basicInfoIconContainer {
+            width: 20px;
+            height: 20px;
+            @include align-center;
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+    .basicInfoIdRowContainer {
+        @include align-center;
+        flex-flow: row wrap;
+        margin-top: 15px;
+        justify-content: flex-start;
+        width: 100%;
+        .basicInfoIdContainer {
+            color: var(--color-light-5);
+            flex: 1 1 50%;
+            margin-top: 0;
+        }
+    }
+    .basicInfoRow {
+        flex-direction: row;
+    }
+    .basicInfoColumn {
+        flex-direction: column;
+    }
+}

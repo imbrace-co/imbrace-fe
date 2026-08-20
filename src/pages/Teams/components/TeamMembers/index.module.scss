@@ -1,0 +1,156 @@
+.heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 32px 0;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.avatarContainer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+.youContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .you {
+        color: #3399fc;
+        font-size: 14px;
+    }
+}
+
+// Table
+.switchLabel {
+    color: var(--color-light-7);
+}
+.switchLabelDisabled {
+    color: var(--color-light-4);
+}
+
+.tableRow {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 4fr 1fr;
+    background-color: var(--color-light-1);
+    transition: background-color 0.2s ease;
+    height: 54px;
+    &:hover {
+        background-color: transparent;
+    }
+    &.tableHeader {
+        top: 180px;
+        position: sticky;
+        z-index: 2;
+        background-color: var(--color-primary-3);
+        color: var(--color-light-7);
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 150%;
+        > div {
+            &:first-child {
+                cursor: initial;
+                width: 56px;
+            }
+            font-size: 16px;
+        }
+    }
+
+    > div {
+        &:first-child {
+            width: 56px;
+
+            display: flex;
+            justify-content: center;
+        }
+        &:last-child {
+            padding-right: 20px;
+        }
+        height: 54px;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        &:last-child {
+            justify-content: flex-end;
+        }
+    }
+}
+.empty {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+// Invite Member
+.teamDetail {
+    display: flex;
+    flex-direction: column;
+    padding: 0 35px;
+    flex: 1;
+    overflow: hidden;
+    .fieldsContainer {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 40px;
+        overflow: hidden;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        > div {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            overflow: hidden;
+            .avatarContainer {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            &.searchContainer {
+                gap: 59px;
+                overflow: hidden;
+                flex: 1;
+                .memberlistContainer {
+                    flex: 1;
+                    display: flex;
+                    overflow: hidden;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+    .member {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+        border: solid 1px #e0e0e0;
+        padding: 0 18px;
+        & + .member {
+            border-top: none;
+        }
+        .detailContainer {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .extraContainer {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+    .footer {
+        height: 43px;
+    }
+}

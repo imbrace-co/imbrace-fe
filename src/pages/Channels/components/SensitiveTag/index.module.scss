@@ -1,0 +1,25 @@
+.sensitiveTag {
+    padding: 5px 15px;
+    border-radius: 13px;
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    &.level1 {
+        background-color: #3399fc;
+    }
+    &.level2 {
+        background-color: #20c860;
+    }
+    &.level3 {
+        background-color: #f6be2a;
+    }
+    &.level4 {
+        background-color: #f57d24;
+    }
+    &.level5 {
+        background-color: #eb3333;
+    }
+}

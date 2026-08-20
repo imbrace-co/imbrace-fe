@@ -1,0 +1,67 @@
+.container {
+    z-index: 100;
+    :global {
+        .simplebar-content-wrapper {
+            height: 100% !important;
+        }
+    }
+}
+.fieldContainer {
+    position: relative;
+    width: 100%;
+    &:hover {
+        .dragContainer {
+            visibility: visible;
+            button {
+                transition: visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        }
+    }
+    &.disabled {
+        pointer-events: none;
+    }
+    .dragContainer {
+        &:hover {
+            visibility: visible;
+        }
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        align-items: flex-start;
+        top: 36px;
+        left: -26px;
+        padding-right: 2px;
+        visibility: hidden;
+        button {
+            cursor: grab;
+            transition: none;
+        }
+    }
+}
+
+.formsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 325px);
+    grid-auto-rows: 196px;
+    gap: 16px;
+    padding: 8px 0;
+}
+.formCard {
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    border: 1px solid var(--color-secondary-4);
+    border-radius: 10px;
+    color: var(--color-light-7);
+    box-shadow: 0px 2px 16px 0px #e0e0e033, 0px 1px 8px 0px #bdbdbd14;
+    cursor: pointer;
+    &:hover {
+        border-color: var(--color-primary-1);
+        background: var(--color-primary-8);
+    }
+    &.selected {
+        border-color: var(--color-primary-1);
+        background: var(--color-primary-8);
+    }
+}

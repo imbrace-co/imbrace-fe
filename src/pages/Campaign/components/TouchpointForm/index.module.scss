@@ -1,0 +1,68 @@
+.date {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.dateField {
+    width: 100%;
+}
+
+.dash {
+    margin-top: 24px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-secondary-3);
+    height: 38px;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.fieldList {
+    display: flex;
+    align-items: center;
+    margin-bottom: 48px;
+    .fieldTitle {
+        padding-left: 24px;
+        display: grid;
+        width: 85%;
+    }
+    .fieldIcon {
+        width: 15%;
+        min-width: 60px;
+    }
+    .warning {
+        padding: 4px 8px;
+        gap: 8px;
+        background: #f2f2f2;
+        border-radius: 4px;
+        cursor: pointer;
+        &:hover {
+            background: #f4faff;
+        }
+    }
+    .field {
+        gap: 10px;
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: column;
+        .missingPhrase {
+            gap: 4px;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 125%;
+            color: #e63c3c;
+        }
+    }
+    .fieldContent {
+        flex: 1;
+    }
+}

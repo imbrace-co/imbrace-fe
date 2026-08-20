@@ -1,0 +1,59 @@
+.container {
+    z-index: 100;
+    :global {
+        .simplebar-content-wrapper {
+            height: 100% !important;
+        }
+    }
+}
+
+.fieldContainer {
+    position: relative;
+    width: 100%;
+    &:hover {
+        .dragContainer {
+            visibility: visible;
+            button {
+                transition: visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        }
+    }
+    &.disabled {
+        pointer-events: none;
+    }
+    .dragContainer {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        align-items: flex-start;
+        top: 36px;
+        left: -26px;
+        padding-right: 2px;
+        visibility: hidden;
+        button {
+            cursor: grab;
+            transition: none;
+        }
+        &:hover {
+            visibility: visible;
+        }
+    }
+}
+.fieldDesc {
+    position: relative;
+    width: 100%;
+    margin-top: 8px;
+}
+.fieldLimit{
+    position: absolute;
+    font-size: 12px;
+    right: 0;
+    top: 3px;
+}
+.fieldDescOverLimit {
+    color: #e53c3c;
+}
+.fieldDescIsLimit {
+    color: #828282;
+}

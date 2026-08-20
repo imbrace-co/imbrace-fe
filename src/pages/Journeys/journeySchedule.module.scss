@@ -1,0 +1,44 @@
+.container {
+    height: 100%;
+}
+
+.previewContainer {
+    background: white;
+    max-width: 650px;
+    margin: 0 auto;
+    height: 100%;
+    .content {
+        padding: 48px;
+    }
+    .file {
+        width: 500px;
+        background: #fafafa;
+        border-radius: 4px;
+        padding: 8px 12px;
+        color: var(--color-light-7);
+    }
+}
+
+.previewSpecialContainer {
+    height: 100%;
+
+    .headerSection {
+        width: 100%;
+        background: white;
+        padding: 24px 32px;
+    }
+
+    .contentSection {
+        max-width: 650px;
+        height: 100%;
+        background: white;
+        margin: 16px auto;
+        padding: 48px;
+
+        .content {
+            height: 100%;
+            font-size: 14px;
+            font-weight: 400;
+        }
+    }
+}

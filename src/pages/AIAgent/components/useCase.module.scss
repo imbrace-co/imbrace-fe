@@ -1,0 +1,74 @@
+$white-color: rgba(255, 255, 255, 1);
+$bold-text: 800;
+$light-text: 400;
+$normal-size: 16px;
+$small-size: 14px;
+
+.card {
+    position: relative;
+    width: 100%;
+    width: 267px;
+    max-height: 241px;
+    height: 100%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-color: rgba(189, 189, 189, 1);
+    &:hover {
+        transform: translateY(-5px);
+        cursor: pointer;
+    }
+    border: 2px solid rgba(51, 153, 252, 1);
+    aspect-ratio: 267/241;
+}
+
+.titleContainer {
+    height: 35%;
+    font-size: $normal-size;
+    font-weight: $bold-text;
+    text-transform: uppercase;
+    background: rgba(217, 239, 254, 1);
+    border-bottom: 2px solid rgba(51, 153, 252, 1);
+    padding: 15% 40px 0 5%;
+    text-align: left;
+}
+.descriptionContainer {
+    font-size: $small-size;
+    font-weight: $light-text;
+    text-align: left;
+    color: rgba(51, 51, 51, 1);
+    padding: 10% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 65%;
+
+    & > div:first-child {
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        line-clamp: 6;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .channel {
+        color: rgba(130, 130, 130, 1);
+        display: flex;
+        align-items: center;
+        span {
+            margin-right: 10px;
+        }
+    }
+}
+.editIcon {
+    position: absolute;
+    right: 5px;
+    top: 5%;
+    z-index: 2;
+}

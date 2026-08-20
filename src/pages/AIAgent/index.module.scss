@@ -1,0 +1,159 @@
+.aiContainer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background: #ffffff;
+}
+
+.heroBanner {
+    position: relative;
+    margin: 0;
+    background: #3399FC;
+    border-radius: 0;
+    padding: 56px 64px;
+    color: #ffffff;
+    overflow: visible;
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.heroContent {
+    max-width: 55%;
+    z-index: 1;
+    position: relative;
+}
+
+.templatesHeaderBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 16px;
+  margin: 30px 0;
+}
+
+.heroTitle {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 48px !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+    letter-spacing: 0.5px !important;
+    margin: 0 !important;
+    color: #ffffff !important;
+
+    & + & {
+        margin-top: 12px !important;
+    }
+}
+
+.heroSubtitle {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.6 !important;
+    letter-spacing: 0 !important;
+    margin: 28px 0 0 !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    max-width: 520px;
+}
+
+.heroThumb {
+    position: absolute;
+    right: 64px;
+    bottom: -40px;
+    width: 500px;
+    height: 344px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@media (max-width: 960px) {
+    .heroBanner {
+        padding: 40px 32px;
+        min-height: 260px;
+    }
+    .heroTitle {
+        font-size: 36px;
+    }
+    .heroThumb {
+        width: 360px;
+        height: auto;
+        aspect-ratio: 500 / 344;
+        right: 32px;
+        bottom: -28px;
+    }
+}
+
+@media (max-width: 760px) {
+    .heroThumb {
+        display: none;
+    }
+    .heroContent {
+        max-width: 100%;
+    }
+}
+
+.tabsRow {
+    margin: 28px 40px 12px;
+
+    :global(.MuiTabs-root),
+    :global(.MuiTabs-scroller),
+    :global(.MuiTabs-flexContainer) {
+        min-height: 0;
+        align-items: center;
+    }
+
+    :global(.MuiTab-root) {
+        font-size: 27px !important;
+        font-weight: 800 !important;
+        text-transform: none;
+        color: #b0b7c1;
+        padding: 4px 0;
+        margin-right: 32px;
+        min-width: 0;
+        min-height: 0;
+        opacity: 1;
+        line-height: 1.2 !important;
+    }
+
+    // Imbrace's Tabs renders the label inside an <h3 class="imbrace_subheading2_*">
+    // which carries its own font-size (16px) overriding the parent. Target it.
+    :global(.MuiTab-root h1),
+    :global(.MuiTab-root h2),
+    :global(.MuiTab-root h3),
+    :global(.MuiTab-root h4),
+    :global(.MuiTab-root span),
+    :global(.MuiTab-root [class*='imbrace_subheading']),
+    :global(.MuiTab-root [class*='imbrace_heading']) {
+        font-size: 27px !important;
+        font-weight: 800 !important;
+        line-height: 1.2 !important;
+    }
+
+    :global(.MuiTab-root.Mui-selected) {
+        color: #111827;
+        font-weight: 800;
+    }
+
+    :global(.MuiTabs-indicator) {
+        display: none;
+    }
+}
+
+.tabContent {
+    flex: 1 1 auto;
+    padding: 8px 24px 32px;
+}
+
+// Keep legacy classes (still referenced from older imports if any)
+.spanNotHidden span {
+    overflow: visible !important;
+}
+.spanNotHidden button {
+    padding: 0 !important;
+}

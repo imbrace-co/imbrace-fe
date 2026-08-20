@@ -1,0 +1,19 @@
+.you {
+    color: #3399fc;
+    font-size: 14px;
+}
+
+.avatarContainer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+    flex: 1;
+}

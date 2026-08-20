@@ -1,0 +1,132 @@
+.pageFrameContainer {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+
+    .leftPanel {
+        width: 60%;
+    }
+
+    .rightPanel {
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding-right: 32px;
+
+        .inner {
+            display: flex;
+            flex: 1;
+
+            @media screen and (max-width: 1024px) {
+                gap: 10px;
+            }
+            @media screen and (max-width: 800px) {
+                flex-direction: column;
+            }
+
+            > div:first-child {
+                flex: 1;
+                margin-top: 30px;
+                @media screen and (max-width: 1024px) {
+                    margin-top: 20px;
+                }
+            }
+
+            > div:last-child {
+                margin-top: 30px;
+                padding: 0 5px;
+                @media screen and (max-width: 1024px) {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+
+    .rightPanelEmailFallback {
+        width: 50%;
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 44px;
+        overflow-y: auto;
+    }
+}
+
+.infoContainer {
+    margin-top: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 530px;
+    gap: 48px;
+    @media screen and (max-width: 1024px) {
+        gap: 20px;
+    }
+
+    .fieldList {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+
+        .field {
+            align-self: flex-start;
+        }
+
+        .fieldIcon {
+            width: 20%;
+        }
+
+        .fieldTitle {
+            display: grid;
+            width: 80%;
+            gap: 0;
+        }
+
+        .fieldContent {
+            flex: 1;
+        }
+    }
+
+    .field {
+        width: 100%;
+        gap: 10px;
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: column;
+        @media screen and (min-width: 1024px) {
+            margin-top: 24px;
+        }
+
+        .fieldtips {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+
+    .fieldDescription {
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button {
+        display: flex;
+        flex-direction: row;
+        margin: 0 0 20px 0;
+        padding: 0;
+        gap: 10px;
+    }
+
+    .description {
+    }
+
+    .codeSnippet {
+        width: 100%;
+    }
+}

@@ -1,0 +1,34 @@
+.templateDetail {
+    display: flex;
+    flex-direction: column;
+    padding: 0 35px;
+    flex: 1;
+    overflow: hidden;
+    .fieldsContainer {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 40px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+        form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            > div {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        .operationDrawerToolbar {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+    }
+    .footer {
+        height: 43px;
+    }
+}

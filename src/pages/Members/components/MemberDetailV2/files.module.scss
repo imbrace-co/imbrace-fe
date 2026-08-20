@@ -1,0 +1,56 @@
+.container {
+    padding: 8px 16px;
+    height: 100%;
+    flex: 1 1 0%;
+    width: 100%;
+    overflow: hidden;
+    .inner {
+        box-shadow: none;
+        padding: 24px;
+        background: white;
+        border: 1px solid var(--color-light-3);
+        border-radius: 8px;
+        &.frameLess {
+            padding: 8px;
+            border: none;
+            .files {
+                grid-template-columns: repeat(auto-fill, 229px);
+            }
+        }
+        .files {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 245px);
+            gap: 16px;
+
+            .fileCard {
+                width: 100%;
+                height: 132px;
+                border: 1px solid var(--color-light-3);
+                box-shadow: 0px 1px 8px rgba(189, 189, 189, 0.08), 0px 2px 16px rgba(224, 224, 224, 0.2);
+                border-radius: 10px;
+                padding: 16px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                font-size: 14px;
+                line-height: 145%;
+                .fileIcon {
+                    font-size: 32px;
+                }
+                .footer {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .download {
+                        opacity: 0;
+                    }
+                }
+                &:hover {
+                    .download {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

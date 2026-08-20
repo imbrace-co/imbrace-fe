@@ -1,0 +1,24 @@
+.note {
+    background-color: rgba(224, 224, 224, 1);
+    padding: 16px;
+    border-radius: 8px;
+    &.noBackground {
+        background-color: white;
+    }
+}
+.container {
+    position: relative;
+    width: 100%;
+}
+.requirementPost {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 5%;
+    > div {
+        width: 80%;
+    }
+    svg {
+        font-size: 30px!important;
+    }
+}

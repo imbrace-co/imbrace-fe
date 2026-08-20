@@ -1,0 +1,127 @@
+.file {
+    width: 100%;
+    background: #fafafa;
+    border-radius: 4px;
+    padding: 8px 12px;
+    color: var(--color-light-7);
+    &.error {
+        border: 1px solid var(--color-danger-1);
+    }
+}
+
+.avatarContainer {
+    position: relative;
+    .uploadButtonContainer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        transform: translate(0, 20%);
+    }
+    &.hover {
+        .uploadButtonContainer {
+            display: none;
+        }
+        &:hover {
+            .uploadButtonContainer {
+                display: block;
+            }
+        }
+    }
+}
+
+.inputContainer {
+    border: 1px solid var(--color-secondary-4);
+    height: 40px;
+    border-radius: 4px;
+    padding: 3px 12px;
+    &:hover {
+        border-color: var(--color-primary-1);
+    }
+    &.hoverActions {
+        .actionContainer {
+            display: none;
+        }
+        &:hover {
+            .actionContainer {
+                display: block;
+            }
+        }
+    }
+    &.disabled {
+        cursor: initial;
+        background-color: var(--color-light-2);
+        border-color: var(--color-light-3);
+        &:hover {
+            border-color: var(--color-light-3);
+        }
+    }
+}
+
+.preview {
+    min-width: 30px;
+    height: 30px;
+    width: fit-content;
+    max-width: 54px;
+    border: 1px solid #3333331a;
+    border-radius: 4px;
+    overflow: hidden;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        border-color: var(--color-primary-1);
+    }
+    &.broken {
+        background-color: var(--color-light-2);
+        color: var(--color-light-4);
+    }
+    img {
+        width: auto;
+        height: 100%;
+    }
+}
+.modalPreview {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 112px;
+
+    .slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        img {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            -webkit-user-drag: none;
+            user-select: none;
+        }
+        .brokenContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 120px;
+            height: 120px;
+            background-color: var(--color-light-2);
+            color: var(--color-light-4);
+        }
+    }
+    .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        &.left {
+            left: 0;
+        }
+        &.right {
+            right: 0;
+        }
+    }
+}

@@ -1,0 +1,4 @@
+email,role
+superadmin@email.com,owner
+admin@email.com,admin
+agent@email.com,user

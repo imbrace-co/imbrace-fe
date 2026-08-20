@@ -1,0 +1,74 @@
+.listPagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0 20px;
+    background-color: #fcfcfc;
+    .paginationContainer {
+        display: flex;
+        align-items: center;
+        gap: 21px;
+        .pages {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .goToPage {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+    }
+}
+.emptyContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+.tableContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    .loadingContainer {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 5;
+
+        > div {
+            height: calc(100% - 51px);
+            max-height: 741px;
+        }
+        .backdrop {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            animation: loadingOpacity 0.3s ease forwards;
+            background-color: white;
+            z-index: -1;
+        }
+    }
+    .tableHeadCell {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+@keyframes loadingOpacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.5;
+    }
+}

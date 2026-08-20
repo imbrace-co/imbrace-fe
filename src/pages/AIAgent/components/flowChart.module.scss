@@ -1,0 +1,16 @@
+
+.orchestrator * {
+    pointer-events: none;
+    cursor: default;
+}
+.orchestrator .childNodes, .orchestrator .addNew {
+    cursor: pointer;
+    pointer-events: visible;
+}
+.orchestrator .addNew:hover {
+    opacity: .8;
+}
+.agent * {
+    pointer-events: none;
+    cursor: default;
+}

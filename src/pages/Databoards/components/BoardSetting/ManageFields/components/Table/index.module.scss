@@ -1,0 +1,132 @@
+.switchLabel {
+    color: var(--color-light-7);
+}
+.switchLabelDisabled {
+    color: var(--color-light-4);
+}
+
+.tableRow {
+    display: grid;
+    grid-template-columns: 2fr 2fr 4fr;
+    background-color: var(--color-light-1);
+    transition: background-color 0.2s ease;
+    min-height: 64px;
+    position: relative;
+    &:hover {
+        background-color: transparent;
+    }
+    &.tableHeader {
+        z-index: 2;
+        background-color: var(--color-primary-3);
+        color: var(--color-light-7);
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 150%;
+        > div {
+            &:first-child {
+                cursor: initial;
+            }
+            font-size: 16px;
+            &:last-child {
+                width: 100%;
+            }
+        }
+    }
+    .cell {
+        padding: 0 8px;
+
+        height: 64px;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .operation {
+        padding-right: 20px;
+        width: 100%;
+        justify-content: flex-end;
+    }
+    .dragHandler {
+        padding: 0;
+        position: absolute;
+        left: -24px;
+        width: 24px;
+        visibility: hidden;
+        button {
+            transition: none;
+        }
+    }
+    .dropIndicator {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+    }
+
+    &:hover {
+        .dragHandler {
+            visibility: visible;
+            button {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        }
+    }
+}
+.empty {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Inline-editable "AI" layout: Field Name | AI Logic | Extraction Prompt | kebab.
+   Reuses the same .tableRow grid container (header + rows + drag handle) so the
+   drag-to-reorder wiring stays intact; only the columns/cell sizing differ. */
+.aiLayout {
+    // Leading 28px track holds the drag handle in-flow (the default absolute
+    // `left: -24px` handle is clipped by the settings dialog's scroll container).
+    grid-template-columns: 28px minmax(160px, 2fr) 190px minmax(220px, 4fr) 150px 52px;
+    min-height: 56px;
+    align-items: center;
+
+    .cell {
+        height: auto;
+        min-height: 56px;
+        padding: 6px 8px;
+    }
+
+    &.tableHeader > div:last-child {
+        width: auto;
+    }
+
+    // Pull the drag handle out of the absolute -24px gutter and into the leading
+    // grid track so it's always visible inside the dialog.
+    .dragHandler {
+        position: static;
+        left: auto;
+        width: auto;
+        min-height: 56px;
+        padding: 0;
+        order: -1;
+        visibility: visible;
+        justify-content: center;
+    }
+}
+
+.kebabCell {
+    justify-content: flex-end;
+    padding-right: 12px;
+}
+
+.promptCell {
+    position: relative;
+    width: 100%;
+}
+
+.promptExpand {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}

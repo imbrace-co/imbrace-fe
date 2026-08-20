@@ -1,0 +1,104 @@
+.notificationDrawer {
+    .contentContainer {
+        height: calc(100% - 40px);
+        width: 100%;
+        overflow: hidden;
+
+        .listContainer {
+            width: 100%;
+            height: 100%;
+
+            .blur {
+                opacity: 0.5;
+
+                &:after {
+                    position: absolute;
+                    inset: 0;
+                    z-index: 10;
+                    opacity: 0.4;
+                    width: 100%;
+                    height: 100%;
+                    background: #fff;
+                    transition: all 0.3s;
+                    content: '';
+                    pointer-events: auto;
+                }
+            }
+
+            .loading {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .loadingContainer {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            > span {
+                z-index: 1;
+            }
+        }
+    }
+
+    .simpleBarContainer {
+        height: 100%;
+        width: 100%;
+
+        :global {
+            .simplebar-placeholder {
+                display: none;
+            }
+        }
+    }
+}
+
+.notification {
+    height: 100%;
+    width: 100%;
+    padding: 0 32px;
+
+    .divider {
+        border-bottom: 1px solid var(--color-light-3);
+    }
+
+    .inner {
+        display: flex;
+        flex-direction: column;
+        padding: 16px 0;
+        width: 100%;
+        height: 100%;
+
+        .container {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: flex-start;
+            gap: 16px;
+            width: 100%;
+            height: 100%;
+
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
+                width: 100%;
+            }
+
+            .extra {
+                display: grid;
+                width: 100%;
+                gap: 8px;
+                grid-template-columns: 1fr auto;
+                justify-content: space-between;
+            }
+        }
+    }
+}

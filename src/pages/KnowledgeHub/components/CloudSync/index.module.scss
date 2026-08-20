@@ -1,0 +1,15 @@
+.folderType {
+  padding: 4vh;
+  border: 1px solid #3399FC;
+  border-radius: 8px;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+    border-color: #1A73E8;
+  }
+}
+
+.driveItem >div:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}

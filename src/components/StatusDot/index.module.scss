@@ -1,0 +1,97 @@
+.status {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    white-space: nowrap;
+    gap: 6px;
+
+    &.bordered {
+        border: 1px solid currentColor;
+        padding: 2px 6px;
+        border-radius: 5px;
+    }
+
+    .dot {
+        position: relative;
+        top: 0;
+        left: -4px;
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+    }
+
+    &.spam {
+        color: var(--color-danger-5);
+        border-color: var(--color-danger-5);
+        .dot {
+            background-color: var(--color-danger-5);
+        }
+    }
+    &.active {
+        color: var(--color-primary-1);
+        border-color: var(--color-primary-1);
+        .dot {
+            background-color: var(--color-primary-1);
+        }
+    }
+    &.pending {
+        color: var(--color-green-2);
+        border-color: var(--color-green-2);
+        .dot {
+            background-color: var(--color-green-2);
+        }
+    }
+    &.closed {
+        color: var(--color-light-5);
+        border-color: var(--color-light-5);
+        .dot {
+            background-color: var(--color-light-5);
+        }
+    }
+
+    &.soon_to_be {
+        color: var(--color-purple-1);
+        border-color: var(--color-purple-1);
+        .dot {
+            background-color: var(--color-purple-1);
+        }
+    }
+
+    &.overdue {
+        color: var(--color-danger-5);
+        border-color: var(--color-danger-5);
+        .dot {
+            background-color: var(--color-danger-5);
+        }
+    }
+
+    &.rep_needed {
+        color: var(--color-accent-yellow-2);
+        border-color: var(--color-accent-yellow-2);
+        .dot {
+            background-color: var(--color-accent-yellow-2);
+        }
+    }
+
+    &.unassigned {
+        color: var(--color-primary-6);
+        border-color: var(--color-primary-6);
+        .dot {
+            background-color: var(--color-primary-6);
+        }
+    }
+
+    &.pending {
+        color: var(--color-green-2);
+        border-color: var(--color-green-2);
+        .dot {
+            background-color: var(--color-green-2);
+        }
+    }
+
+    &.sidebar {
+        justify-content: flex-start;
+        gap: 2px;
+        color: currentColor;
+    }
+}

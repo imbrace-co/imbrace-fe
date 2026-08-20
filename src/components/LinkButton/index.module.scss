@@ -1,0 +1,31 @@
+@mixin common {
+    font-size: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: var(--color-primary-1);
+    &:hover {
+        color: var(--color-primary-4);
+    }
+    &:focus {
+        color: var(--color-primary-4);
+    }
+    &:active {
+        color: var(--color-primary-4);
+    }
+    &:visited {
+        color: var(--color-primary-4);
+    }
+}
+.linkButton {
+    outline: none;
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    text-decoration: underline;
+    cursor: pointer;
+    @include common;
+}
+.link {
+    @include common;
+}

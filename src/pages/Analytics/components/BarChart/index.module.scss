@@ -1,0 +1,58 @@
+.loadingContainer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > span {
+        z-index: 1;
+    }
+}
+.emptyContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min-content;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .description {
+        position: absolute;
+        white-space: wrap;
+        bottom: 40px;
+        text-align: center;
+        padding: 0 10px;
+    }
+}
+.container {
+    width: 100%;
+    height: 580px;
+    position: relative;
+
+    > div:first-child {
+        height: 100%;
+    }
+}
+.blur {
+    opacity: 0.5;
+
+    &:after {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        opacity: 0.4;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        transition: all 0.3s;
+        content: '';
+        pointer-events: auto;
+    }
+}

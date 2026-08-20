@@ -1,0 +1,24 @@
+.disabledText {
+    color: var(--color-light-4);
+}
+
+.activeText {
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+}
+
+.copyButton {
+    .copyIcon {
+        display: none;
+    }
+    &:hover {
+        .copyIcon {
+            display: block;
+        }
+        .linkIcon {
+            display: none;
+        }
+    }
+}

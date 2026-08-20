@@ -1,0 +1,36 @@
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 48px 16px 56px;
+    gap: 6px;
+}
+
+.title {
+    color: #1f2937;
+    font-weight: 600 !important;
+}
+
+.description {
+    color: #6b7280;
+    max-width: 480px;
+}
+
+.illustration {
+    margin-top: 28px;
+    width: 100%;
+
+    svg,
+    img {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: auto;
+    }
+}
+
+.action {
+    margin-top: 28px;
+}

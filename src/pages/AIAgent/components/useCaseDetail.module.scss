@@ -1,0 +1,281 @@
+.container {
+    display: flex;
+    height: calc(100vh - 131px);
+    position: fixed;
+    justify-content: start !important;
+}
+.dialogContainer {
+    // Keep dialog above page content (prevent cards' "..." showing through)
+    // Keep below navbar (navbar uses z-index ~1300)
+    z-index: 1299 !important;
+    justify-content: start !important;
+    > div {
+        justify-content: start !important;
+    }
+}
+.sidebar {
+    padding-right: 30px;
+    padding-left: 32px;
+    padding-bottom: 32px;
+    padding-top: 12px;
+    flex: 1;
+    background: rgba(255, 255, 255, 1);
+    font-size: 14px;
+    font-weight: 400;
+    overflow-y: auto;
+    > h3:first-child {
+        text-transform: uppercase;
+    }
+    h3:first-child {
+        font-size: 16px;
+        font-weight: 800;
+        color: rgba(79, 79, 79, 1);
+    }
+    p {
+        color: rgba(130, 130, 130, 1);
+        line-height: 145%;
+        margin-bottom: 2vw;
+    }
+}
+
+.openMulti:hover {
+    cursor: pointer;
+    opacity: .8;
+}
+
+.childBottomUnset p {
+    margin-bottom: 0!important;
+}
+
+.content {
+    position: relative;
+    overflow-y: auto;
+    width: 72%;
+    padding: 0 2% 0;
+    background: rgba(250, 250, 250, 1);
+    .contentInner,
+    .videoInner {
+        position: absolute;
+        height: calc(100vh - 200px);
+        width: calc(100% - 32px);
+        bottom: 0;
+        left: 16px;
+    }
+    .videoInner {
+        max-height: 88%;
+        overflow-y: auto;
+    }
+}
+.iconContainer {
+    margin-top: 15%;
+    h3 {
+        text-transform: capitalize !important;
+    }
+    .integrationIcons {
+        display: flex;
+        align-items: center;
+        color: rgba(0, 0, 0, 1);
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+}
+.iconList {
+    svg {
+        margin-right: 10px;
+    }
+}
+.videoGuide {
+    h3 {
+        font-size: 16px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #4f4f4f;
+    }
+    span,
+    ul li {
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba(79, 79, 79, 1);
+        line-height: 145%;
+    }
+    ul {
+        padding-left: 10px;
+        margin-top: 0;
+    }
+}
+
+.tabs {
+    display: flex;
+    gap: 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.tab {
+    cursor: pointer;
+    color: #666;
+}
+
+.active {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 4px;
+}
+
+hr {
+    margin: 10px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+.message {
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.linkButton {
+    margin-top: 10px;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #007bff;
+    background: none;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        background: #007bff;
+        color: white;
+    }
+}
+.featureList {
+    line-height: 145%;
+    div {
+        font-size: 14px;
+        display: flex;
+        margin-bottom: 10px;
+        color: rgba(0, 0, 0, 1);
+        span {
+            flex: 1;
+        }
+        svg {
+            width: 25px;
+            margin-right: 10px;
+        }
+    }
+}
+.useNow {
+    position: absolute;
+    width: 28%;
+    bottom: 0;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+.bottomButton {
+    height: 80px;
+    background-color: rgba(250, 250, 250, 1);
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(224, 224, 224, 1);
+    padding: 0 32px;
+    div {
+        display: flex;
+        button {
+            margin-left: 10px;
+        }
+    }
+}
+
+.tabsContainer {
+    flex: 1;
+    border-bottom: 1px solid var(--color-light-3);
+    position: fixed;
+    background-color: rgb(250, 250, 250);
+    z-index: 1000;
+    padding-top: 13px;
+    width: 100%;
+}
+
+.tabsRow {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding-right: 96px;
+    position: relative;
+    > :first-child {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+.exportIconBtn {
+    position: absolute;
+    right: 2%;
+    top: 28px;
+    transform: translateY(-50%);
+    z-index: 9999;
+    margin-top: 0;
+    flex: 0 0 auto;
+    background: rgb(250, 250, 250);
+    border: none;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        background: rgba(21, 109, 242, 0.08);
+    }
+    &:focus-visible {
+        outline: 2px solid rgba(21, 109, 242, 0.4);
+        outline-offset: 2px;
+    }
+}
+
+.exportIconImg {
+    width: 14px;
+    height: 17px;
+    display: block;
+}
+
+.tabContent {
+    margin-top: 67px;
+    > div {
+        overflow: hidden !important;
+    }
+}
+
+.demoIframe {
+    border: 1px solid rgba(224, 224, 224, 1);
+    border-radius: 8px 8px 0 0;
+    border-bottom: none;
+    width: 100%;
+    height: 100%;
+}
+
+.integrationIcon {
+    margin-right: 10px;
+}
+.viewOnly {
+    pointer-events: none;
+    input,
+    textarea {
+        background-color: rgba(224, 224, 224, 1);
+        height: 100%;
+    }
+}
+.noPermission {
+    height: calc(100% - 130px);
+    overflow: hidden;
+}
+.matchContentHeigh > div {
+    padding-bottom: 0 !important;
+}

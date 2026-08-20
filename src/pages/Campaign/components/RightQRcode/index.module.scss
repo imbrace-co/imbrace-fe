@@ -1,0 +1,129 @@
+.rightPanel {
+    background: #fcfcfc;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 108px;
+    padding-bottom: 48px;
+    overflow: auto;
+    :global {
+        .ant-qrcode {
+            padding: 0;
+            border-radius: 0;
+            border: none;
+        }
+    }
+    @media (max-height: 850px) {
+        padding-top: 70px;
+        padding-bottom: 24px;
+    }
+    @media (max-height: 710px) {
+        padding-top: 48px;
+        padding-bottom: 24px;
+    }
+
+    .qrcodeField {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        position: relative;
+
+        .qrcodeContainer {
+            position: relative;
+
+            .qRCodeEmpty {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 100;
+                padding: 12px;
+                gap: 4px;
+                width: 368px;
+                height: 368px;
+                background: rgba(217, 239, 254, 0.9);
+            }
+
+            .qRCodeURLEmpty {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 100;
+                padding: 12px;
+                gap: 4px;
+                width: 368px;
+                height: 164px;
+            }
+
+            .solidBg {
+                background: rgba(217, 239, 254);
+            }
+
+            .translucentBg {
+                background: rgba(217, 239, 254, 0.9);
+            }
+        }
+
+        .qrcodeToggle {
+            margin-bottom: 96px;
+
+            @media (max-height: 924px) {
+                margin-bottom: 50px;
+            }
+            @media (max-height: 780px) {
+                margin-bottom: 25px;
+            }
+            @media (max-height: 710px) {
+                margin-bottom: 0;
+            }
+        }
+
+        .qrcodeText {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 150%;
+            text-align: center;
+            color: #828282;
+            white-space: normal;
+            width: 368px;
+            height: 42px;
+        }
+
+        .editButton {
+            display: flex;
+            flex-direction: row;
+            margin-top: 48px;
+            padding: 0;
+            gap: 8px;
+
+            @media (max-height: 924px) {
+                margin-top: 24px;
+            }
+            @media (max-height: 780px) {
+                margin-top: 0;
+            }
+        }
+
+        .qrcodeError {
+            margin-top: 48px;
+            @media (max-height: 824px) {
+                margin-top: 24px;
+            }
+            @media (max-height: 780px) {
+                margin-top: 0;
+            }
+        }
+    }
+}

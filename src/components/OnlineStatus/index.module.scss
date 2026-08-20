@@ -1,0 +1,24 @@
+.onlineStatus {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #bdbdbd;
+    }
+    .label {
+        font-size: 14px;
+        color: #bdbdbd;
+    }
+    &.online {
+        .dot {
+            background-color: #14ac4e;
+        }
+
+        .label {
+            color: #14ac4e;
+        }
+    }
+}

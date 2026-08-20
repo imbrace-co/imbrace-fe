@@ -1,0 +1,23 @@
+.tag {
+    font-size: 12px;
+    line-height: 12px;
+    padding: 5px 10px;
+    border-radius: 13px;
+    color: white;
+    white-space: nowrap;
+    &.agent {
+        background-color: var(--color-accent-yellow-7);
+        color: var(--color-accent-yellow-2);
+    }
+    &.admin {
+        background-color: var(--color-primary-3);
+        color: var(--color-primary-1);
+    }
+    &.superAdmin {
+        background-color: var(--color-primary-3);
+        color: var(--color-primary-1);
+    }
+    &.bot {
+        background-color: var(--color-light-5);
+    }
+}

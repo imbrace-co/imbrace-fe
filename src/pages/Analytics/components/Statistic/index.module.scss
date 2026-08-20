@@ -1,0 +1,22 @@
+.statistic {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 164px;
+    overflow: hidden;
+    &.fullWidth {
+        width: 100%;
+    }
+    .header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        color: var(--color-light-5);
+    }
+
+    > h2 {
+        color: var(--color-light-7);
+    }
+}

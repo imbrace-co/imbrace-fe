@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-around;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 35px;
+        width: 100%;
+    }
+    .contentIcon {
+        font-size: 40px;
+        margin-right: 3px;
+    }
+    .content {
+        display: flex;
+        flex: 1;
+        overflow: hidden;
+        width: 100%;
+    }
+    .actionPanel {
+        display: flex;
+        flex-direction: row;
+        gap: 2;
+        justify-content: flex-end;
+        margin: 5px;
+    }
+    .confirmButton {
+        background-color: #39f;
+        color: #fff;
+        height: 30;
+        min-width: 100;
+    }
+    .cancelButton {
+        background-color: #bdbdbd;
+        color: #fff;
+        height: 30;
+        min-width: 100;
+        & hover {
+            background-color: #7e7e7e;
+        }
+    }
+}

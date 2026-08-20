@@ -1,0 +1,120 @@
+.card {
+    border: 1px solid var(--color-light-3);
+    border-radius: 12px;
+    background: var(--color-light-0, #fff);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+    box-shadow:
+        0 2px 16px 0 color-mix(in srgb, var(--color-light-3) 20%, transparent),
+        0 1px 8px 0 color-mix(in srgb, var(--color-light-4) 8%, transparent);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        border-color: #C5D9FB;
+        box-shadow: 0 4px 14px rgba(21, 109, 242, 0.14);
+    }
+}
+
+.loadingOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.headerRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.titleIcon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-light-7);
+}
+
+.statsRow {
+    display: flex;
+    gap: 8px;
+}
+
+.stat {
+    flex: 1 1 0;
+    background: var(--color-light-2);
+    border-radius: 12px;
+    padding: 18px 12px;
+    text-align: center;
+    aspect-ratio: 116 / 80;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.statValue {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-light-7);
+    line-height: 1;
+}
+
+.statLabel {
+    font-size: 12px;
+    color: var(--color-light-5);
+    margin-top: 12px;
+    line-height: 1;
+}
+
+.categoryName {
+    font-size: 12px;
+    color: var(--color-light-5);
+    text-align: right;
+    min-height: 18px;
+    // Push the category + footer block to the bottom so the footer stays flush
+    // with the card edge even when the title wraps and cards stretch to equal height.
+    margin-top: auto;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-light-3);
+}
+
+.editLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+
+    &:hover .editIcon {
+        opacity: 0.8;
+    }
+}
+
+.editIcon {
+    width: 22px;
+    height: 22px;
+    flex: 0 0 auto;
+    transition: opacity 0.18s ease;
+}

@@ -1,0 +1,159 @@
+.gridContainer {
+  display: grid;
+  gap: 2vh 15px;
+  margin: 0 auto;
+  padding: 0;
+
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: start;
+
+  .cardWrapperRelative {
+    aspect-ratio: 282 / 102;
+    width: 100%;
+    border-radius: 8px;
+    position: relative;
+
+    .cardWrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      border-radius: 8px;
+      border: 2px solid #E0E0E0;
+      padding: 15px 8px 20px 22px;
+      background: #FAFAFA;
+      z-index: 1;
+      transition: height 0.3s ease, border 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+
+      .cardDropdown {
+        transform: rotate(90deg);
+      }
+
+      &:hover {
+        border: 3px solid #3399FC;
+        cursor: pointer;
+      }
+
+      &.cardWrapperExpanded {
+        height: calc(100% * 178 / 102);
+        z-index: 10;
+        background: #fff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      }
+    }
+
+    .descriptionWrapper {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      width: 100%;
+      transition: max-height 0.3s ease, opacity 0.25s ease, margin-bottom 0.3s ease;
+      margin-bottom: 0;
+    }
+
+    .descriptionVisible {
+      max-height: 64px;
+      opacity: 1;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.gridContainerSmall {
+  grid-template-columns: repeat(auto-fill, 280px);
+}
+
+
+.folderType {
+  padding: 4vh;
+  border: 1px solid #3399FC;
+  border-radius: 8px;
+  width: 50%;
+  text-align: center;
+
+  &:hover {
+    cursor: pointer;
+    border-color: #1A73E8;
+  }
+}
+
+.noDataFound {
+  svg {
+    width: 500px;
+    max-width: 80vw;
+  }
+
+  div {
+    span:first-child {
+      margin-bottom: 2px;
+    }
+  }
+
+  >span {
+    margin-top: 2vh;
+    font-weight: 600;
+    font-size: 16px;
+    color: #828282;
+  }
+}
+
+.folderType {
+  background: var(--color-primary-8);
+}
+
+.syncedTag {
+  position: absolute;
+  z-index: 99;
+  right: 15px;
+  bottom: 15px;
+  display: flex;
+
+  span {
+    background: var(--color-accent-yellow-2);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--color-light-1);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+}
+
+.fileIcon svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.removeIcon svg {
+  width: 16px !important;
+  height: 16px !important;
+  color: var(--color-green-1);
+}
+
+.contentArea {
+  position: relative;
+  min-height: 320px;
+}
+
+.loadingOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.loadingText {
+  color: var(--color-secondary-3);
+  font-size: 14px;
+}

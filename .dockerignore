@@ -1,0 +1,22 @@
+# Commmon
+**/.git
+**/.gitignore
+**/README.md
+**/.idea
+**/.vscode
+**/*.log
+**/.elasticbeanstalk
+
+# NodeJs Specific
+**/node_modules
+
+# ignore build folder
+build
+
+#
+devops
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+.git
+.gitignore

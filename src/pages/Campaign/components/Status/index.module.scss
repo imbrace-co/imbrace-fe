@@ -1,0 +1,23 @@
+.container {
+    padding: 4px 12px;
+    border-radius: 0px 0px 4px 4px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    &.active {
+        color: var(--color-accent-yellow-2);
+        background-color: var(--color-accent-yellow-6);
+    }
+    &.inactive {
+        color: var(--color-light-7);
+        background-color: var(--color-secondary-4);
+    }
+    &.archived {
+        color: white;
+        background-color: var(--color-secondary-3);
+    }
+    &.update_needed {
+        color: var(--color-danger-1);
+        background-color: var(--color-danger-4);
+    }
+}

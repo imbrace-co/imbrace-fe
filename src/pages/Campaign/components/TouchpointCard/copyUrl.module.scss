@@ -1,0 +1,27 @@
+.copyUrl {
+    display: flex;
+    gap: 6px;
+    width: 156px;
+    border-radius: 4px;
+    padding: 4px 0px;
+    cursor: pointer;
+    &:hover {
+        background-color: var(--color-primary-3);
+    }
+    svg {
+        font-size: 20px;
+        color: var(--color-primary-1);
+    }
+    > div {
+        flex: 1;
+        overflow: hidden;
+
+        .textContainer {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            font-size: 12px;
+        }
+    }
+}
