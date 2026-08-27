@@ -9,10 +9,10 @@ const __dirname = path.dirname(__filename);
 // Supported languages — must match the files published by imbrace-translations-public.
 const languages = ['en', 'cn', 'zh'];
 
-// Translations are published to GitHub Pages from imbraceltd/imbrace-translations-public.
+// Translations are published to GitHub Pages from imbrace-co/imbrace-translations-public.
 // To update a key: edit the source in that repo and push — Pages rebuilds, and the
 // next build/start here picks up the new copy. Override with TRANSLATIONS_BASE_URL.
-const jsonBaseUrl = process.env.TRANSLATIONS_BASE_URL || 'https://imbraceltd.github.io/imbrace-translations-public';
+const jsonBaseUrl = process.env.TRANSLATIONS_BASE_URL || 'https://imbrace-co.github.io/imbrace-translations-public';
 
 const localesDir = path.join(__dirname, 'public/locale');
 if (!fs.existsSync(localesDir)) {

@@ -4,16 +4,16 @@ Main IMbrace webapp (admin / member workspace). Vite + React 18 + Redux Toolkit 
 
 ## Setup
 
-This package depends on [`@imbrace/ui`](https://github.com/imbraceltd/imbrace-ui)
+This package depends on [`@imbrace/ui`](https://github.com/imbrace-co/imbrace-ui)
 via a relative file path (`file:../imbrace-ui`). Clone both repos as siblings
 and build the UI lib first:
 
 ```bash
-git clone https://github.com/imbraceltd/imbrace-ui.git
+git clone https://github.com/imbrace-co/imbrace-ui.git
 cd imbrace-ui && pnpm install && pnpm build      # ~30s — produces dist/
 
 cd ..
-git clone https://github.com/imbraceltd/imbrace-fe.git
+git clone https://github.com/imbrace-co/imbrace-fe.git
 cd imbrace-fe && pnpm install                    # ~30s
 ```
 
