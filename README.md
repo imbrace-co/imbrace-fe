@@ -1,6 +1,6 @@
 # imbrace-fe
 
-Main IMbrace webapp (admin / member workspace). Vite + React 18 + Redux Toolkit + PWA.
+Main iMBrace webapp (admin / member workspace). Vite + React 18 + Redux Toolkit + PWA.
 
 ## Setup
 
