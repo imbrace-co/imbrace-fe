@@ -66,5 +66,4 @@ pnpm build         # output → build/, ~14 MB, PWA bundle included
 
 ## License
 
-- [`LICENSE.md`](LICENSE.md) — Sustainable Use License (covers files without `.ee.` in path)
-- [`LICENSE_EE.md`](LICENSE_EE.md) — Enterprise License (covers files with `.ee.` in path)
+MIT — see [LICENSE](LICENSE).
