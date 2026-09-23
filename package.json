@@ -2,6 +2,7 @@
     "name": "imbrace-frontend",
     "version": "4.4.5",
     "private": true,
+    "license": "MIT",
     "dependencies": {
         "@ant-design/charts": "^1.4.3",
         "@ant-design/plots": "^1.2.6",
