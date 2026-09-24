@@ -6,7 +6,7 @@ import { createRoot } from 'react-dom/client';
 import { useTranslation } from 'react-i18next';
 
 import { env } from '@/env';
-import { CAMPAIGN_QRCODE_URL } from '@/services/baseURL';
+import { getCampaignQrcodeUrl } from '@/services/baseURL';
 
 import Dialog from '../Dialog';
 
@@ -28,7 +28,7 @@ const UnlockFeature = ({
     const { t } = useTranslation();
     const [open, setOpen] = useState(true);
     const [step, setStep] = useState(initialStep || 1);
-    const qrCodeUrl = touchpoint ? encodeURI(`${CAMPAIGN_QRCODE_URL}?id=${touchpoint._id}&env=${env.VITE_APP_ENV}`) : '';
+    const qrCodeUrl = touchpoint ? encodeURI(`${getCampaignQrcodeUrl()}?id=${touchpoint._id}&env=${env.VITE_APP_ENV}`) : '';
 
     return (
         <Dialog

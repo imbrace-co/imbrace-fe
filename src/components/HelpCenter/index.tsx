@@ -22,7 +22,7 @@ import store, { useAppDispatch, useAppSelector } from '@/redux/store';
 import { putAccount } from '@/services/api/account';
 import { getResources } from '@/services/api/resources';
 import apiFetch from '@/services/axios/handler';
-import { CHAT_WIDGET_URL } from '@/services/baseURL';
+import { getChatWidgetUrl } from '@/services/baseURL';
 
 import styles from './index.module.scss';
 
@@ -139,7 +139,7 @@ const WebWidget = ({ channelId, isDrawerOpen, onClose, prefillMessage }: WebWidg
                 ref={iframeRef}
                 id="imbraceChatWidget"
                 name="Imbrace Chat Widget"
-                src={`${CHAT_WIDGET_URL.replace(/(\/[^/]*\.js)/g, '')}?channel_id=${channelId}&parentUrl=${encodeURIComponent(
+                src={`${getChatWidgetUrl().replace(/(\/[^/]*\.js)/g, '')}?channel_id=${channelId}&parentUrl=${encodeURIComponent(
                     window.location.href,
                 )}&defaultOpen=true`}
                 sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-top-navigation"

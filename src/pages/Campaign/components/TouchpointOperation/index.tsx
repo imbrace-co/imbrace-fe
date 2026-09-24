@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router';
 import { useNavigate, useParams } from 'react-router-dom';
 import SimpleBar from 'simplebar-react';
+import { getCookie } from 'typescript-cookie';
 import { z } from 'zod';
 
 import { dialog } from '@/components/Dialog';
@@ -29,9 +30,8 @@ import {
 import { postBoardUpload } from '@/services/api/crm';
 import { ImbraceFileUpload } from '@/services/axios';
 import apiFetch from '@/services/axios/handler';
-import { CAMPAIGN_QRCODE_URL } from '@/services/baseURL';
+import { getCampaignQrcodeUrl } from '@/services/baseURL';
 import { addLeadingZero } from '@/utils/NumberHelper';
-import { getCookie } from 'typescript-cookie';
 import {
     AttachmentSchema,
     MaxLengthStringSchema,
@@ -455,7 +455,12 @@ export const TouchpointOperationModal = ({
                 if (logoFiles && logoFiles.length > 0 && logoFiles[0].file) {
                     const QRCodeLogoFormData = new FormData();
                     QRCodeLogoFormData.append('', logoFiles[0].file);
-                    const { data } = await apiFetch<{ url: string }[]>(postBoardUpload.api, postBoardUpload.method, QRCodeLogoFormData, ImbraceFileUpload);
+                    const { data } = await apiFetch<{ url: string }[]>(
+                        postBoardUpload.api,
+                        postBoardUpload.method,
+                        QRCodeLogoFormData,
+                        ImbraceFileUpload,
+                    );
                     updatedQRCodeLogoUrl = data?.[0]?.url || '';
                 } else {
                     updatedQRCodeLogoUrl = logo?.[0]?.url || '';
@@ -521,7 +526,12 @@ export const TouchpointOperationModal = ({
                     if (logoFiles && logoFiles.length > 0 && logoFiles[0].file) {
                         const QRCodeLogoFormData = new FormData();
                         QRCodeLogoFormData.append('', logoFiles[0].file);
-                        const { data } = await apiFetch<{ url: string }[]>(postBoardUpload.api, postBoardUpload.method, QRCodeLogoFormData, ImbraceFileUpload);
+                        const { data } = await apiFetch<{ url: string }[]>(
+                            postBoardUpload.api,
+                            postBoardUpload.method,
+                            QRCodeLogoFormData,
+                            ImbraceFileUpload,
+                        );
                         updatedQRCodeLogoUrl = data?.[0]?.url || '';
                     } else {
                         updatedQRCodeLogoUrl = logo?.[0]?.url || '';
@@ -641,7 +651,7 @@ export const TouchpointOperationModal = ({
             return `${baseUrl}?${utmParams.filter((param) => !param.endsWith('=')).join('&')}`;
         }
         return encodeURI(
-            `${CAMPAIGN_QRCODE_URL}?id=${touchpointData?.id}&orgId=${touchpointData?.organization_id || getCookie('org_id')}&env=${
+            `${getCampaignQrcodeUrl()}?id=${touchpointData?.id}&orgId=${touchpointData?.organization_id || getCookie('org_id')}&env=${
                 env.VITE_APP_ENV
             }&isFromQRcode=true`,
         );
@@ -1047,7 +1057,12 @@ const TouchpointOperation = () => {
                 if (logoFiles && logoFiles.length > 0 && logoFiles[0].file) {
                     const QRCodeLogoFormData = new FormData();
                     QRCodeLogoFormData.append('', logoFiles[0].file);
-                    const { data } = await apiFetch<{ url: string }[]>(postBoardUpload.api, postBoardUpload.method, QRCodeLogoFormData, ImbraceFileUpload);
+                    const { data } = await apiFetch<{ url: string }[]>(
+                        postBoardUpload.api,
+                        postBoardUpload.method,
+                        QRCodeLogoFormData,
+                        ImbraceFileUpload,
+                    );
                     updatedQRCodeLogoUrl = data?.[0]?.url || '';
                 } else {
                     updatedQRCodeLogoUrl = logo?.[0]?.url || '';
@@ -1113,7 +1128,12 @@ const TouchpointOperation = () => {
                     if (logoFiles && logoFiles.length > 0 && logoFiles[0].file) {
                         const QRCodeLogoFormData = new FormData();
                         QRCodeLogoFormData.append('', logoFiles[0].file);
-                        const { data } = await apiFetch<{ url: string }[]>(postBoardUpload.api, postBoardUpload.method, QRCodeLogoFormData, ImbraceFileUpload);
+                        const { data } = await apiFetch<{ url: string }[]>(
+                            postBoardUpload.api,
+                            postBoardUpload.method,
+                            QRCodeLogoFormData,
+                            ImbraceFileUpload,
+                        );
                         updatedQRCodeLogoUrl = data?.[0]?.url || '';
                     } else {
                         updatedQRCodeLogoUrl = logo?.[0]?.url || '';
@@ -1242,7 +1262,7 @@ const TouchpointOperation = () => {
             return `${baseUrl}?${utmParams.filter((param) => !param.endsWith('=')).join('&')}`;
         }
         return encodeURI(
-            `${CAMPAIGN_QRCODE_URL}?id=${touchpointData?.id}&orgId=${touchpointData?.organization_id || getCookie('org_id')}&env=${
+            `${getCampaignQrcodeUrl()}?id=${touchpointData?.id}&orgId=${touchpointData?.organization_id || getCookie('org_id')}&env=${
                 env.VITE_APP_ENV
             }&isFromQRcode=true`,
         );
