@@ -1,0 +1,7 @@
+# Force LF for shell scripts regardless of the checking-out platform's git
+# config. Without this, a Windows clone with core.autocrlf=true (a common
+# default) converts docker-entrypoint.sh to CRLF on checkout. Docker COPYs
+# that CRLF file straight into the nginx image as a docker-entrypoint.d/ hook;
+# its "#!/bin/sh\r" shebang then fails to resolve inside the Linux container
+# ("not found", exit 127) and nginx never starts.
+*.sh text eol=lf
