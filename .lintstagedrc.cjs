@@ -19,7 +19,7 @@ const typeCheck = (files) => {
 };
 
 module.exports = {
-    '**/*.ts?(x)': () => 'tsc --noEmit --pretty',
+    '**/*.ts?(x)': (files) => typeCheck(files),
     '**/*.{ts,tsx,js,jsx}': async (files) => {
         try {
             const filesToLint = await removeIgnoredFiles(files);
