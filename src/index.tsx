@@ -10,7 +10,6 @@ import packageJson from '../package.json';
 import App from './App';
 import { env } from './env';
 import reportWebVitals from './reportWebVitals';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 if (process.env.NODE_ENV === 'production' && !env.VITE_UNABLE_SENTRY && env.VITE_APP_SENTRY_DSN) {
     Sentry.init({
@@ -74,7 +73,13 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(<App />);
 
-serviceWorkerRegistration.register();
+// PWA registration is handled by vite-plugin-pwa's own injected client
+// (registers the real /sw.js — see vite.config.ts). The CRA-era
+// serviceWorkerRegistration.register() call that used to be here hardcoded
+// the webpack/CRA filename /service-worker.js, which does not exist under
+// Vite. On localhost that made it unregister the real /sw.js and
+// window.location.reload() in an infinite loop (~once/sec), wiping any
+// login form input. Removed.
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
