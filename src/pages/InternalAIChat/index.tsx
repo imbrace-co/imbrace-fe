@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { IMBRACE_ACCESS_TOKEN } from '@/constants/app';
@@ -14,13 +14,20 @@ const InternalAIChat = forwardRef<HTMLIFrameElement, Record<string, never>>((pro
 
     const initialLang = useRef(i18n.language || 'en').current;
 
+    // No host configured means the literal would read "undefined/?..." — a
+    // relative URL that nginx's SPA fallback serves index.html for, embedding
+    // this app inside itself. Bail out instead of pointing the iframe at it.
     const src = useMemo(() => {
-        return `${env.VITE_APP_INTERNAL_AI_CHAT_HOST}/?imbraceToken=${token}&organizationId=${organizationId}&lang=${initialLang}&isInsightsIQ=true`;
+        const chatHost = env.VITE_APP_INTERNAL_AI_CHAT_HOST;
+        if (!chatHost) return undefined;
+        return `${chatHost}/?imbraceToken=${token}&organizationId=${organizationId}&lang=${initialLang}&isInsightsIQ=true`;
     }, [token, organizationId, initialLang]);
 
-    useImperativeHandle(ref, () => iframeRef.current!);
+    useImperativeHandle(ref, () => iframeRef.current as HTMLIFrameElement);
 
-    const sendMessage = () => {
+    // useCallback keeps the identity stable across renders, so listing it in the
+    // effect below satisfies exhaustive-deps without re-running on every render.
+    const sendMessage = useCallback(() => {
         if (iframeRef.current?.contentWindow) {
             postMessage({
                 action: 'SET_LANGUAGE',
@@ -31,11 +38,11 @@ const InternalAIChat = forwardRef<HTMLIFrameElement, Record<string, never>>((pro
                 origin: '*',
             });
         }
-    };
+    }, [i18n.language]);
 
     useEffect(() => {
         sendMessage();
-    }, [i18n.language]);
+    }, [sendMessage]);
 
     return (
         <iframe

@@ -1,11 +1,12 @@
 import { Button, Icon, Spin, Tabs, Typography, useDialog } from '@imbrace/ui';
-import type { IntegrationIconTypes } from '@imbrace/ui/dist/components/Icon';
 import CloseIcon from '@mui/icons-material/Close';
 import { AppBar, IconButton, Toolbar } from '@mui/material';
 import type { SyntheticEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { FormProvider, useWatch } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
+import { useSearchParams } from 'react-router-dom';
+
 import aiAgentExportIcon from '@/assets/icons/ai_agent_export.svg';
 import agentChildDiagram from '@/assets/images/ai_agent/agentChild.png';
 import agentParentDiagram from '@/assets/images/ai_agent/agentParent.png';
@@ -17,10 +18,10 @@ import { useAppSelector } from '@/redux/store';
 import { getChannelList } from '@/services/api/channel';
 import apiFetch from '@/services/axios/handler';
 import { getIsAllowModify } from '@/utils/CookiesHelper';
+
 import styles from './useCaseDetail.module.scss';
 import type { UseCaseProps } from './UseCaseItem';
 import { useExportAIAgentDialog } from './useExportAIAgentDialog';
-import { useSearchParams } from 'react-router-dom';
 const TAB_VALUE = {
     DEMO: { title: 'preview', value: 'demo' },
     BASIC_INFOR: { title: 'ai_assistant_management_basic_info', value: 'basic' },
@@ -38,10 +39,7 @@ const extractChannelIdFromDemoUrl = (url?: string): string | undefined => {
     try {
         const parsed = new URL(url, window.location.origin);
         return (
-            parsed.searchParams.get('channel_id') ??
-            parsed.searchParams.get('channel') ??
-            parsed.searchParams.get('channelId') ??
-            undefined
+            parsed.searchParams.get('channel_id') ?? parsed.searchParams.get('channel') ?? parsed.searchParams.get('channelId') ?? undefined
         );
     } catch {
         return;
@@ -69,7 +67,6 @@ const UseCaseItemDetail = (props: {
         demo_url,
         suggestion_prompts,
         supported_channels,
-        integrations,
         assistant_id,
         type,
         version,
@@ -155,9 +152,15 @@ const UseCaseItemDetail = (props: {
             ? `/workflow-v2?flowId=${encodeURIComponent(String(derivedWorkflowId))}`
             : `/workflow/channels/${encodeURIComponent(String(derivedWorkflowId))}`
         : undefined;
-    const demoIframeSrc = assistant_id
-        ? `${env.VITE_APP_INTERNAL_AI_CHAT_HOST}/?imbraceToken=${token}&organizationId=${organizationId}&lang=${initialLang}&isAgentDemo=true&agentId=${assistant_id}`
-        : undefined;
+    // Without a host the template literal yields "undefined/?..." — a relative
+    // URL that nginx's SPA fallback answers with index.html, so the iframe
+    // re-embeds this very app (and NotFound bounces it back to /ai-agent with
+    // the query string intact, nesting forever). Render nothing instead.
+    const chatHost = env.VITE_APP_INTERNAL_AI_CHAT_HOST;
+    const demoIframeSrc =
+        assistant_id && chatHost
+            ? `${chatHost}/?imbraceToken=${token}&organizationId=${organizationId}&lang=${initialLang}&isAgentDemo=true&agentId=${assistant_id}`
+            : undefined;
 
     const { isSmallNavBar, setIsNavBarAutoExpand } = useNavBar();
     const { control } = formMethods;
@@ -321,26 +324,6 @@ const UseCaseItemDetail = (props: {
         };
     }, [tab, suggestion_prompts, isEnableStreaming, assistant_id]);
 
-    const renderIntegrations = () => {
-        if (!integrations) return;
-        const biggerIcon = ['nvidia', 'googleVision', 'ocr'];
-        return integrations?.map((integration) => (
-            <div className={styles.integrationIcons}>
-                <Icon
-                    style={{
-                        width: biggerIcon.includes(integration.icon) ? '30px' : '24px',
-                        height: biggerIcon.includes(integration.icon) ? '30px' : '24px',
-                        marginRight: '10px',
-                    }}
-                    name={`${integration.icon}` as IntegrationIconTypes['name']}
-                    fontSize={24}
-                    namespace="file"
-                />
-                <span>{integration.title}</span>
-            </div>
-        ));
-    };
-
     const backToList = () => {
         setIsNavBarAutoExpand(true);
         exitForm();
@@ -380,11 +363,7 @@ const UseCaseItemDetail = (props: {
                 <div className={styles.container} style={{ width: `calc(100vw - ${isSmallNavBar ? 60 : 208}px`, position: 'relative' }}>
                     <div className={styles.sidebar}>
                         <h3>{title || t('ai_agent_custom_title')}</h3>
-                        <p>
-                            {description ||
-                                short_description ||
-                                t('ai_agent_custom_desc')}
-                        </p>
+                        <p>{description || short_description || t('ai_agent_custom_desc')}</p>
                         {type === USE_CASE_TYPE.DEFAULT && (
                             <section>
                                 {features && features.length > 0 && (
@@ -633,15 +612,24 @@ const UseCaseItemDetail = (props: {
                         {tab === TAB_VALUE.DEMO.value && (
                             <div className={styles.tabContent}>
                                 <div className={styles.contentInner}>
-                                    <iframe
-                                        ref={iframeChatWidgetRef}
-                                        src={demoIframeSrc}
-                                        sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-top-navigation"
-                                        allow="clipboard-read; clipboard-write"
-                                        scrolling="no"
-                                        title="Embedded Page"
-                                        className={styles.demoIframe}
-                                    />
+                                    {demoIframeSrc ? (
+                                        <iframe
+                                            ref={iframeChatWidgetRef}
+                                            src={demoIframeSrc}
+                                            sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-top-navigation"
+                                            allow="clipboard-read; clipboard-write"
+                                            scrolling="no"
+                                            title="Embedded Page"
+                                            className={styles.demoIframe}
+                                        />
+                                    ) : (
+                                        <Typography variant="Body" style={{ color: '#828282', padding: '64px 0', textAlign: 'center' }}>
+                                            {t(
+                                                'ai_agent_preview_unavailable',
+                                                'Preview is unavailable — the embedded AI chat host is not configured.',
+                                            )}
+                                        </Typography>
+                                    )}
                                 </div>
                             </div>
                         )}
@@ -653,12 +641,12 @@ const UseCaseItemDetail = (props: {
                         {(tab === TAB_VALUE.BEHAVIOR_SETTING.value ||
                             tab === TAB_VALUE.KNOWLEDGE_SUPPORT.value ||
                             tab === TAB_VALUE.ADVANCED_SETTINGS.value) && (
-                                <div className={`${styles.tabContent} ${!isAllowModify && styles.noPermission}`}>
-                                    {tab === TAB_VALUE.BEHAVIOR_SETTING.value && renderBehaviorTab()}
-                                    {tab === TAB_VALUE.KNOWLEDGE_SUPPORT.value && renderKnowledgeHubTab()}
-                                    {tab === TAB_VALUE.ADVANCED_SETTINGS.value && renderAdvancedTab()}
-                                </div>
-                            )}
+                            <div className={`${styles.tabContent} ${!isAllowModify && styles.noPermission}`}>
+                                {tab === TAB_VALUE.BEHAVIOR_SETTING.value && renderBehaviorTab()}
+                                {tab === TAB_VALUE.KNOWLEDGE_SUPPORT.value && renderKnowledgeHubTab()}
+                                {tab === TAB_VALUE.ADVANCED_SETTINGS.value && renderAdvancedTab()}
+                            </div>
+                        )}
                     </div>
                 </div>
                 <div

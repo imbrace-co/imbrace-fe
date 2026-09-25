@@ -77,10 +77,7 @@ const DocumentAIItemDetail = (props: {
     const initialLang = useRef(i18n.language || 'en').current;
 
     const isCreateMode = !item;
-    const steps: SetupStep[] = useMemo(
-        () => DOCUMENT_AI_STEPS.map((value) => ({ value, label: t(STEP_LABEL_KEY[value]) })),
-        [t],
-    );
+    const steps: SetupStep[] = useMemo(() => DOCUMENT_AI_STEPS.map((value) => ({ value, label: t(STEP_LABEL_KEY[value]) })), [t]);
     const currentIndex = steps.findIndex((s) => s.value === tab);
     const isLastStep = currentIndex === steps.length - 1;
 
@@ -110,9 +107,14 @@ const DocumentAIItemDetail = (props: {
     const showFooterBack = (isCreateMode && currentIndex > 0) || linkageBackTarget !== null;
     const isDirty = formMethods.formState.isDirty;
 
-    const previewSrc = assistant_id
-        ? `${env.VITE_APP_INTERNAL_AI_CHAT_HOST}/?imbraceToken=${token}&organizationId=${organizationId}&lang=${initialLang}&isAgentDemo=true&agentId=${assistant_id}`
-        : '';
+    // Guard the host as well as the id: without it the literal becomes
+    // "undefined/?..." — a relative URL, which is truthy here and would pass
+    // the check below, then load this app inside itself via the SPA fallback.
+    const chatHost = env.VITE_APP_INTERNAL_AI_CHAT_HOST;
+    const previewSrc =
+        assistant_id && chatHost
+            ? `${chatHost}/?imbraceToken=${token}&organizationId=${organizationId}&lang=${initialLang}&isAgentDemo=true&agentId=${assistant_id}`
+            : '';
 
     const backToList = () => {
         setIsNavBarAutoExpand(true);
@@ -206,24 +208,16 @@ const DocumentAIItemDetail = (props: {
 
                 <div className={styles.content}>
                     {tab === DocumentAIManagementTab.Basics && (
-                        <div className={`${styles.tabContent} ${!isAllowModify ? styles.viewOnly : ''}`}>
-                            {renderBasicTab()}
-                        </div>
+                        <div className={`${styles.tabContent} ${!isAllowModify ? styles.viewOnly : ''}`}>{renderBasicTab()}</div>
                     )}
                     {tab === DocumentAIManagementTab.Linkage && (
-                        <div className={`${styles.tabContent} ${!isAllowModify ? styles.viewOnly : ''}`}>
-                            {renderLinkageTab()}
-                        </div>
+                        <div className={`${styles.tabContent} ${!isAllowModify ? styles.viewOnly : ''}`}>{renderLinkageTab()}</div>
                     )}
                     {tab === DocumentAIManagementTab.Advanced && (
-                        <div className={`${styles.tabContent} ${!isAllowModify ? styles.viewOnly : ''}`}>
-                            {renderAdvancedTab()}
-                        </div>
+                        <div className={`${styles.tabContent} ${!isAllowModify ? styles.viewOnly : ''}`}>{renderAdvancedTab()}</div>
                     )}
                     {tab === DocumentAIManagementTab.Knowledge && (
-                        <div className={`${styles.tabContent} ${!isAllowModify ? styles.viewOnly : ''}`}>
-                            {renderKnowledgeTab()}
-                        </div>
+                        <div className={`${styles.tabContent} ${!isAllowModify ? styles.viewOnly : ''}`}>{renderKnowledgeTab()}</div>
                     )}
                     {tab === DocumentAIManagementTab.Preview && (
                         <div className={styles.tabContent} style={{ display: 'flex', flexDirection: 'column' }}>
